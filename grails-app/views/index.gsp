@@ -1,3 +1,9 @@
+%{--
+Bootstrap theme.
+
+http://htmlcoder.me/preview/worthy/v.1.0/
+http://demo.theme.firmasite.com/
+--}%
 <!DOCTYPE html>
 <html>
 <head>
