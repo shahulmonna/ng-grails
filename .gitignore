@@ -5,9 +5,9 @@ java/test*
 # IntelliJ project files
 .idea
 *.iml
-.iml
 *.ipr
 *.iws
+*~
 
 # Eclipse files
 .project
