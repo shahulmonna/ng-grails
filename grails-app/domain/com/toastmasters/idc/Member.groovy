@@ -1,6 +1,10 @@
 package com.toastmasters.idc
 
-class Member {
+class Member implements Serializable{
+	static mapWith = "mongo"
+	static hasMany = [roles:Role]
+	static belongsTo = [club: Club]
+
 	String name
 	String emailId
 	String contactNumber
@@ -14,7 +18,8 @@ class Member {
 		contactNumber nullable: false
 		memberId nullable: false
 	}
-	static mapping = {
 
+	static mapping = {
+		compoundIndex name:"2d", contactNumber:1
 	}
 }
