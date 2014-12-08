@@ -2,7 +2,6 @@ package com.toastmasters.idc
 
 class Member implements Serializable{
 	static mapWith = "mongo"
-	static hasMany = [roles:Role]
 	static belongsTo = [club: Club]
 
 	String name
@@ -10,11 +9,13 @@ class Member implements Serializable{
 	String contactNumber
 	String imageUrl
 	String memberId
+	String status
 	Date registered
 
+
 	static constraints = {
-		name maxSize: 100, blank: false
-		emailId nullable: false, email: true
+		name maxSize: 100, blank: false,size: 2..50
+		emailId nullable: false, email: true,unique:true
 		contactNumber nullable: false
 		memberId nullable: false
 	}

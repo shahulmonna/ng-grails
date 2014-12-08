@@ -15,14 +15,30 @@
           href="${assetPath(src: 'apple-touch-icon.png')}">
     <link rel="apple-touch-icon" sizes="114x114"
           href="${assetPath(src: 'apple-touch-icon-retina.png')}">
+    <!-- Web Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,300&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
+
     <asset:stylesheet src="application.css"/>
     <asset:javascript src="application.js"/>
     <g:layoutHead/>
 </head>
 
 <body>
-<div id="grailsLogo" role="banner"><a href="http://grails.org"><asset:image
-        src="grails_logo.png" alt="Grails"/></a></div>
+<header>
+    <div id="grailsLogo" role="banner">
+       <a href="http://toastmasters.org">
+            <asset:image src="toastmasters-logo@2x.png" alt="Toastmasters"
+                         style="max-width:115px;"/></a>
+
+        <span>Tarento India Toastmasters Club</span>
+
+        <a href="http://idc.tarento.com">
+            <asset:image src="Acando_Tarento.png" alt="Tarento"
+                         style="max-width:160px;"/></a>
+    </div>
+</header>
+
 <g:layoutBody/>
 <div class="footer" role="contentinfo"></div>
 
