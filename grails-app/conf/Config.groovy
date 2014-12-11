@@ -122,3 +122,4 @@ log4j.main = {
 
 //date formats which will be used application wide when binding to Date.
 grails.databinding.dateFormats = ['yyyy-MM-dd HH:mm:ss','yyyy-MM-dd']
+grails.gorm.default.constraints = { '*'(nullable: true) }
