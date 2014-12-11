@@ -1,10 +1,10 @@
-dataSource {
+/*dataSource {
 	pooled = true
 	jmxExport = true
 	driverClassName = "org.h2.Driver"
 	username = "sa"
 	password = ""
-}
+}*/
 hibernate {
 	cache.use_second_level_cache = true
 	cache.use_query_cache = false
@@ -18,18 +18,19 @@ hibernate {
 
 // environment specific settings
 environments {
-	development {		
+	development {
 			// one of 'create', 'create-drop', 'update', 'validate', ''
 			dataSource {
 				pooled = true
 				dbCreate = "update"
 			}
 			mongo {
-				host = System.env['TITM_MONGO_DB_HOST']
+				url = System.env['MONGOLAB_URI']
+				/*host = System.env['TITM_MONGO_DB_HOST']
 				port = System.env['TITM_MONGO_DB_PORT']
 				username = System.env['TITM_MONGO_DB_USER']
 				password=System.env['TITM_MONGO_DB_PASSCODE']
-				databaseName =System.env['TITM_MONGO_DB']
+				databaseName =System.env['TITM_MONGO_DB']*/
 				pooled = true
 				options {
 					autoConnectRetry = true
@@ -83,11 +84,12 @@ environments {
 			dbCreate = "update"
 		}
 		mongo {
-			host = System.env['TITM_MONGO_DB_HOST']
+			url = System.env['MONGOLAB_URI']
+		/*	host = System.env['TITM_MONGO_DB_HOST']
 			port = System.env['TITM_MONGO_DB_PORT']
 			username = System.env['TITM_MONGO_DB_USER']
 			password=System.env['TITM_MONGO_DB_PASSCODE']
-			databaseName =System.env['TITM_MONGO_DB']
+			databaseName =System.env['TITM_MONGO_DB']*/
 			pooled = true
 			options {
 				autoConnectRetry = true
