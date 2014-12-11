@@ -18,13 +18,29 @@ hibernate {
 
 // environment specific settings
 environments {
-	development {
-		dataSource {
-			dbCreate = "create-drop"
+	development {		
 			// one of 'create', 'create-drop', 'update', 'validate', ''
-			url =
-					"jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
-		}
+			dataSource {
+				pooled = true
+				dbCreate = "update"
+			}
+			mongo {
+				host = System.env['TITM_MONGO_DB_HOST']
+				port = System.env['TITM_MONGO_DB_PORT']
+				username = System.env['TITM_MONGO_DB_USER']
+				password=System.env['TITM_MONGO_DB_PASSCODE']
+				databaseName =System.env['TITM_MONGO_DB']
+				pooled = true
+				options {
+					autoConnectRetry = true
+					connectTimeout = 3000
+					connectionsPerHost = 500
+					socketTimeout = 60000
+					threadsAllowedToBlockForConnectionMultiplier = 5
+					maxAutoConnectRetryTime=5
+					maxWaitTime=120000
+				}
+			}
 	}
 	test {
 		dataSource {
@@ -33,7 +49,7 @@ environments {
 					"jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
 		}
 	}
-	production {
+/*	production {
 		dataSource {
 			dbCreate = "update"
 			url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
@@ -59,14 +75,29 @@ environments {
 						java.sql.Connection.TRANSACTION_READ_COMMITTED
 			}
 		}
-	}
-}
-grails {
-	mongo {
-		host = System.env['TITM_MONGO_DB_HOST']
-		port = System.env['TITM_MONGO_DB_PORT']
-		username = System.env['TITM_MONGO_DB_USER']
-		password=System.env['TITM_MONGO_DB_PASSCODE']
-		databaseName =System.env['TITM_MONGO_DB']
+	}*/
+
+	production {
+		dataSource {
+			pooled = true
+			dbCreate = "update"
+		}
+		mongo {
+			host = System.env['TITM_MONGO_DB_HOST']
+			port = System.env['TITM_MONGO_DB_PORT']
+			username = System.env['TITM_MONGO_DB_USER']
+			password=System.env['TITM_MONGO_DB_PASSCODE']
+			databaseName =System.env['TITM_MONGO_DB']
+			pooled = true
+			options {
+				autoConnectRetry = true
+				connectTimeout = 3000
+				connectionsPerHost = 500
+				socketTimeout = 60000
+				threadsAllowedToBlockForConnectionMultiplier = 5
+				maxAutoConnectRetryTime=5
+				maxWaitTime=120000
+			}
+		}
 	}
 }
