@@ -25,12 +25,12 @@ environments {
 				dbCreate = "update"
 			}
 			mongo {
-				url = System.env['MONGOLAB_URI']
-				/*host = System.env['TITM_MONGO_DB_HOST']
+				//url = System.env['MONGOLAB_URI']
+				host = System.env['TITM_MONGO_DB_HOST']
 				port = System.env['TITM_MONGO_DB_PORT']
 				username = System.env['TITM_MONGO_DB_USER']
 				password=System.env['TITM_MONGO_DB_PASSCODE']
-				databaseName =System.env['TITM_MONGO_DB']*/
+				databaseName =System.env['TITM_MONGO_DB']
 				pooled = true
 				options {
 					autoConnectRetry = true

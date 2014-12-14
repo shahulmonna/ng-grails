@@ -84,6 +84,9 @@ grails.project.dependency.resolution = {
 		//https://medium.com/groovy-grails/grails-heroku-mongodb-and-postgresql-1eeedaceabf8
 		compile ":heroku:1.0.1"
 		compile ":cloud-support:1.0.11"
-		compile ":database-session:1.2.1"
+		//compile ":database-session:1.2.1"
+		/*build-info : Provides a controller/view that display basic information
+		about the war file*/
+		compile ":build-info:1.2.8"
 	}
 }
