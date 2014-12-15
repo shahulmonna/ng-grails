@@ -33,7 +33,7 @@
     <link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
 
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Font Awesome CSS -->
     <link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -46,6 +46,10 @@
 
     <!-- Custom css -->
     <link href="css/custom.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+%{--    <link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <p:css name="ng.css"/>--}%
+
     <g:layoutHead/>
 </head>
 

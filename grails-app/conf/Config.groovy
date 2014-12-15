@@ -123,3 +123,19 @@ log4j.main = {
 //date formats which will be used application wide when binding to Date.
 grails.databinding.dateFormats = ['yyyy-MM-dd HH:mm:ss','yyyy-MM-dd']
 grails.gorm.default.constraints = { '*'(nullable: true) }
+
+// UI-performance configuration
+//http://stevesouders.com/hpws/rules.php
+/*uiperformance.bundles = [
+		[type: 'js',
+		 name: 'ng.js',
+		 files: ['jquery.min','bootstrap.min','jquery.tooltipster','jquery-ui.min',
+						 'jquery.flexslider-min','jquery.geocomplete.min',
+						 'plugins/modernizr','plugins/isotope/isotope.pkgd.min',
+						 'plugins/jquery.backstretch.min','plugins/jquery.appear',
+						 'template','ng-grails',]],
+		[type: 'css',
+		 name: 'ng.css',
+		 files: ['bootstrap.min','bootstrap-theme.min','animate',
+						 'animations','custom','style']]
+]*/
