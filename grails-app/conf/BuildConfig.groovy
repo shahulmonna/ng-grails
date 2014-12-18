@@ -46,14 +46,22 @@ grails.project.dependency.resolution = {
 		//mavenRepo "http://repository.codehaus.org"
 		//mavenRepo "http://download.java.net/maven/2/"
 		//mavenRepo "http://repository.jboss.com/maven2/"
+		mavenRepo "http://archiva.fdvs.com.ar/repository/public1"
 	}
 
 	dependencies {
 		// specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
 		// runtime 'mysql:mysql-connector-java:5.1.29'
 		// runtime 'org.postgresql:postgresql:9.3-1101-jdbc41'
-		test "org.grails:grails-datastore-test-support:1.0-grails-2.4"
+
 		compile "net.sf.ehcache:ehcache-core:2.4.8"
+		compile ("ar.com.fdvs:DynamicJasper:5.0.2"){
+			transitive = false
+		}
+		runtime ('net.sf.jasperreports:jasperreports:5.1.0') {
+			excludes 'xml-apis'
+		}
+		test "org.grails:grails-datastore-test-support:1.0.2-grails-2.4"
 	}
 
 	plugins {
@@ -63,7 +71,7 @@ grails.project.dependency.resolution = {
 		// plugins for the compile step
 		compile ":scaffolding:2.1.2"
 		compile ':cache:1.1.7'
-		compile ":asset-pipeline:1.9.6"
+		compile ":asset-pipeline:1.9.9"
 
 		// plugins needed at runtime but not for compilation
 		//runtime ":hibernate4:4.3.5.5" // or ":hibernate:3.6.10.17"
@@ -71,6 +79,7 @@ grails.project.dependency.resolution = {
 		runtime ":database-migration:1.4.0"
 		runtime ":jquery:1.11.1"
 		compile ":jasper:1.10.0"
+		compile ":dynamic-jasper:0.6"
 		//https://github.com/robfletcher/grails-gson#readme
 		//compile 'org.grails.plugins:gson:1.1.4'
 //		compile ":pdf:0.6"

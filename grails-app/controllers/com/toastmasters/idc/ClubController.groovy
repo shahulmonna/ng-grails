@@ -1,18 +1,21 @@
 package com.toastmasters.idc
 
-
+import ar.com.fdvs.dj.output.ReportWriter
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class ClubController {
-
+    def reportService;
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Club.list(params), model:[clubInstanceCount: Club.count()]
+			def realPath =request.getRealPath('/WEB-INF/reports/ng-report.jrxml');
+			ReportWriter reportWriter = reportService.dynaSampleReport(realPath);
+			reportWriter.writeTo(response);
+        //respond Club.list(params), model:[clubInstanceCount: Club.count()]
     }
 
     def show(Club clubInstance) {
