@@ -3,28 +3,18 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
-	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
-	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
-	<style name="Detail" fontName="Arial" fontSize="12"/>
-	<field name="name" class="java.lang.String"/>
-	<field name="surName" class="java.lang.String"/>
+
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="70" splitType="Stretch">
-			<textField>
-				<reportElement uuid="03b9a4c5-59da-4df7-9435-835eda1e83aa" x="0" y="0" width="316" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="712c4332-946e-40dd-aa9e-a68fea55c1f9" x="316" y="0" width="239" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{surName}]]></textFieldExpression>
-			</textField>
-		</band>
+<band splitType="Stretch">
+<image scaleImage="RealSize" onErrorType="Icon" isLazy="true">
+                 <reportElement x="0" y="0" width="900"/>
+
+                <imageExpression class="java.lang.String"><![CDATA["https://scontent-a.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/1512849_10201993201790439_3815626211902846663_n.jpg?oh=9df2648468164f6a0b2d1a4939ada2b2&oe=550BCDCE"]]></imageExpression>
+            </image>
+</band>
 	</title>
 	<pageHeader>
 		<band splitType="Stretch"/>

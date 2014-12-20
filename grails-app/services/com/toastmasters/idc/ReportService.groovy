@@ -39,8 +39,8 @@ class ReportService {
 		drb.setTemplateFile(realPath);
 
 		DynamicReport dr = drb.addColumn("Name", "name",
-				String.class.getName(),30).addColumn("ISBN", "ISBN",
-				String.class.getName(),30).addColumn("Author","author",
+				String.class.getName(),30).addColumn("number", "number",
+				String.class.getName(),30).addColumn("type","type",
 				String.class.getName(), 100).
 				setTitle("My Favorite Books").
 				setUseFullPageWidth(true).
