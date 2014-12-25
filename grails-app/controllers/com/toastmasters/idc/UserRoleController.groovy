@@ -39,7 +39,7 @@ class UserRoleController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'userRole.label', default: 'UserRole'), userRoleInstance.id])
+                flash.message = message(code: 'default.created.message', args: [message(code: 'userrole.label', default: 'User Role'), userRoleInstance.id])
                 redirect userRoleInstance
             }
             '*' { respond userRoleInstance, [status: CREATED] }
@@ -66,7 +66,7 @@ class UserRoleController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'UserRole.label', default: 'UserRole'), userRoleInstance.id])
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'userrole.label', default: 'User Role'), userRoleInstance.id])
                 redirect userRoleInstance
             }
             '*'{ respond userRoleInstance, [status: OK] }
@@ -85,7 +85,7 @@ class UserRoleController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'UserRole.label', default: 'UserRole'), userRoleInstance.id])
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'userrole.label', default: 'User Role'), userRoleInstance.id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
@@ -95,7 +95,7 @@ class UserRoleController {
     protected void notFound() {
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'userRole.label', default: 'UserRole'), params.id])
+                flash.message = message(code: 'default.not.found.message', args: [message(code: 'userrole.label', default: 'User Role'), params.id])
                 redirect action: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }

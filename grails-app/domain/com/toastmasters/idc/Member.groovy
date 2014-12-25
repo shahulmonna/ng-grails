@@ -1,5 +1,8 @@
 package com.toastmasters.idc
 
+import groovy.transform.ToString
+
+@ToString
 class Member implements Serializable{
 	static mapWith = "mongo"
 	static belongsTo = [club: Club]

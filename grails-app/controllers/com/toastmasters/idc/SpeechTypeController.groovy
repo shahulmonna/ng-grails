@@ -39,7 +39,8 @@ class SpeechTypeController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'speechType.label', default: 'SpeechType'), speechTypeInstance.id])
+                flash.message = message(code: 'default.created.message', 
+										args: [message(code: 'speechtype.label', default: 'Speech Type'), speechTypeInstance.id])
                 redirect speechTypeInstance
             }
             '*' { respond speechTypeInstance, [status: CREATED] }
@@ -66,7 +67,7 @@ class SpeechTypeController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'SpeechType.label', default: 'SpeechType'), speechTypeInstance.id])
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'speechtype.label', default: 'Speech Type'), speechTypeInstance.id])
                 redirect speechTypeInstance
             }
             '*'{ respond speechTypeInstance, [status: OK] }
@@ -85,7 +86,7 @@ class SpeechTypeController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'SpeechType.label', default: 'SpeechType'), speechTypeInstance.id])
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'speechtype.label', default: 'Speech Type'), speechTypeInstance.id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
@@ -95,7 +96,7 @@ class SpeechTypeController {
     protected void notFound() {
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'speechType.label', default: 'SpeechType'), params.id])
+                flash.message = message(code: 'default.not.found.message', args: [message(code: 'speechtype.label', default: 'Speech Type'), params.id])
                 redirect action: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }

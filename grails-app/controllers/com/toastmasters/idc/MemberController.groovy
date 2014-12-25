@@ -66,7 +66,8 @@ class MemberController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Member.label', default: 'Member'), memberInstance.id])
+                flash.message = message(code: 'default.updated.message',
+										args: [message(code: 'member.label', default: 'Member'), memberInstance.id])
                 redirect memberInstance
             }
             '*'{ respond memberInstance, [status: OK] }
@@ -85,7 +86,8 @@ class MemberController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Member.label', default: 'Member'), memberInstance.id])
+                flash.message = message(code: 'default.deleted.message',
+										args: [message(code: 'member.label', default: 'Member'), memberInstance.id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }

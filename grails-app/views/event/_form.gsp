@@ -14,7 +14,17 @@
 		<g:message code="event.emcee.label" default="Emcee" />
 		
 	</label>
-	<g:textField name="emcee" value="${eventInstance?.emcee}" />
+
+    <g:if test="${members?.size()}">
+        <select name="emcee" id="emcee">
+            <g:each in="${members}" var="entry">
+                <option value="${entry.name}">${entry.name}</option>
+            </g:each>
+        </select>
+    </g:if>
+    <g:else>
+        <g:textField name="emcee" value="${eventInstance?.emcee}" />
+    </g:else>
 
 </div>
 
@@ -91,6 +101,7 @@
 
 </div>
 
+<g:if test="${showSpeeches}">
 <div class="fieldcontain ${hasErrors(bean: eventInstance, field: 'speechs', 'error')} ">
 	<label for="speechs">
 		<g:message code="event.speechs.label" default="Speechs" />
@@ -107,13 +118,23 @@
 </ul>
 
 </div>
-
+</g:if>
 <div class="fieldcontain ${hasErrors(bean: eventInstance, field: 'wordOfTheDay', 'error')} ">
 	<label for="wordOfTheDay">
 		<g:message code="event.wordOfTheDay.label" default="Word Of The Day" />
 		
 	</label>
 	<g:textField name="wordOfTheDay" value="${eventInstance?.wordOfTheDay}" />
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: eventInstance, field: 'descWordOfTheDay', 'error')} ">
+    <label for="descWordOfTheDay">
+        <g:message code="event.descWordOfTheDay.label"
+                   default="Word Of The Day Description" />
+
+    </label>
+    <g:textArea name="descWordOfTheDay" value="${eventInstance?.descWordOfTheDay}" />
 
 </div>
 

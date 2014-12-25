@@ -55,13 +55,15 @@ grails.project.dependency.resolution = {
 		// runtime 'org.postgresql:postgresql:9.3-1101-jdbc41'
 
 		compile "net.sf.ehcache:ehcache-core:2.4.8"
-		compile ("ar.com.fdvs:DynamicJasper:5.0.2"){
+		/*compile ("ar.com.fdvs:DynamicJasper:5.0.2"){
 			transitive = false
 		}
 		runtime ('net.sf.jasperreports:jasperreports:5.1.0') {
 			excludes 'xml-apis'
-		}
+		}*/
+		runtime 'org.springframework:spring-test:3.2.3.RELEASE'
 		test "org.grails:grails-datastore-test-support:1.0.2-grails-2.4"
+		compile 'org.xhtmlrenderer:flying-saucer-pdf:9.0.4'
 	}
 
 	plugins {
@@ -78,8 +80,9 @@ grails.project.dependency.resolution = {
 		compile ":mongodb:3.0.2"
 		runtime ":database-migration:1.4.0"
 		runtime ":jquery:1.11.1"
-		compile ":jasper:1.10.0"
-		compile ":dynamic-jasper:0.6"
+	/*	compile ":jasper:1.10.0"
+		compile ":dynamic-jasper:0.6"*/
+		compile ":rendering:1.0.0"
 		//https://github.com/robfletcher/grails-gson#readme
 		//compile 'org.grails.plugins:gson:1.1.4'
 //		compile ":pdf:0.6"

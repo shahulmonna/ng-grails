@@ -39,7 +39,8 @@ class EducationProgramController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'educationProgram.label', default: 'EducationProgram'), educationProgramInstance.id])
+                flash.message = message(code: 'default.created.message',
+										args: [message(code: 'educationProgram.label', default: 'Education Program'), educationProgramInstance.id])
                 redirect educationProgramInstance
             }
             '*' { respond educationProgramInstance, [status: CREATED] }
@@ -66,7 +67,9 @@ class EducationProgramController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'EducationProgram.label', default: 'EducationProgram'), educationProgramInstance.id])
+                flash.message = message(code: 'default.updated.message',
+										args: [message(code: 'educationProgram.label',
+												default: 'Education Program'), educationProgramInstance.id])
                 redirect educationProgramInstance
             }
             '*'{ respond educationProgramInstance, [status: OK] }
@@ -85,7 +88,9 @@ class EducationProgramController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'EducationProgram.label', default: 'EducationProgram'), educationProgramInstance.id])
+                flash.message = message(code: 'default.deleted.message',
+										args: [message(code: 'educationProgram.label',
+												default: 'Education Program'), educationProgramInstance.id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }

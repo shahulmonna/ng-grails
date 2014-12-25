@@ -66,7 +66,8 @@ class RoleController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Role.label', default: 'Role'), roleInstance.id])
+                flash.message = message(code: 'default.updated.message',
+										args: [message(code: 'role.label', default: 'Role'), roleInstance.id])
                 redirect roleInstance
             }
             '*'{ respond roleInstance, [status: OK] }
@@ -85,7 +86,8 @@ class RoleController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Role.label', default: 'Role'), roleInstance.id])
+                flash.message = message(code: 'default.deleted.message',
+										args: [message(code: 'role.label', default: 'Role'), roleInstance.id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }

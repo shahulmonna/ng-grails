@@ -1,7 +1,10 @@
 package com.toastmasters.idc
 
+import groovy.transform.ToString
+
 /**
  * Created by syedshahul on 4/12/14.*/
+@ToString
 class Speech implements Serializable{
 	static mapWith = "mongo"
 	static belongsTo = [events: Event]

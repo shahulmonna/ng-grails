@@ -1,9 +1,11 @@
 package com.toastmasters.idc
 
+import groovy.transform.ToString
 import org.apache.commons.lang.builder.HashCodeBuilder
 
 /**
  * Created by syedshahul on 8/12/14.*/
+@ToString
 class UserRole  implements Serializable {
 
 	private static final long serialVersionUID = 1

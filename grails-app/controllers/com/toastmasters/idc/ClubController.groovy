@@ -1,6 +1,5 @@
 package com.toastmasters.idc
 
-import ar.com.fdvs.dj.output.ReportWriter
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -12,10 +11,8 @@ class ClubController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-			def realPath =request.getRealPath('/WEB-INF/reports/ng-report.jrxml');
-			ReportWriter reportWriter = reportService.dynaSampleReport(realPath);
-			reportWriter.writeTo(response);
-        //respond Club.list(params), model:[clubInstanceCount: Club.count()]
+
+        respond Club.list(params), model:[clubInstanceCount: Club.count()]
     }
 
     def show(Club clubInstance) {
@@ -69,7 +66,8 @@ class ClubController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Club.label', default: 'Club'), clubInstance.id])
+                flash.message = message(code: 'default.updated.message',
+										args: [message(code: 'club.label', default: 'Club'), clubInstance.id])
                 redirect clubInstance
             }
             '*'{ respond clubInstance, [status: OK] }
@@ -88,7 +86,8 @@ class ClubController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Club.label', default: 'Club'), clubInstance.id])
+                flash.message = message(code: 'default.deleted.message',
+										args: [message(code: 'club.label', default: 'Club'), clubInstance.id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }

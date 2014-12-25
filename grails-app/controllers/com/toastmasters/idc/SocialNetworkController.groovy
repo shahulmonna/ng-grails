@@ -39,7 +39,8 @@ class SocialNetworkController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'socialNetwork.label', default: 'SocialNetwork'), socialNetworkInstance.id])
+                flash.message = message(code: 'default.created.message', 
+										args: [message(code: 'socialnetwork.label', default: 'Social Network'), socialNetworkInstance.id])
                 redirect socialNetworkInstance
             }
             '*' { respond socialNetworkInstance, [status: CREATED] }
@@ -66,7 +67,8 @@ class SocialNetworkController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'SocialNetwork.label', default: 'SocialNetwork'), socialNetworkInstance.id])
+                flash.message = message(code: 'default.updated.message', 
+										args: [message(code: 'socialnetwork.label', default: 'Social Network'), socialNetworkInstance.id])
                 redirect socialNetworkInstance
             }
             '*'{ respond socialNetworkInstance, [status: OK] }
@@ -85,7 +87,8 @@ class SocialNetworkController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'SocialNetwork.label', default: 'SocialNetwork'), socialNetworkInstance.id])
+                flash.message = message(code: 'default.deleted.message', 
+										args: [message(code: 'socialnetwork.label', default: 'Social Network'), socialNetworkInstance.id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
@@ -95,7 +98,7 @@ class SocialNetworkController {
     protected void notFound() {
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'socialNetwork.label', default: 'SocialNetwork'), params.id])
+                flash.message = message(code: 'default.not.found.message', args: [message(code: 'socialnetwork.label', default: 'Social Network'), params.id])
                 redirect action: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }

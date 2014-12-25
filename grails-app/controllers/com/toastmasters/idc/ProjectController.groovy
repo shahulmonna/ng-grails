@@ -66,7 +66,8 @@ class ProjectController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Project.label', default: 'Project'), projectInstance.id])
+                flash.message = message(code: 'default.updated.message',
+										args: [message(code: 'project.label', default: 'Project'), projectInstance.id])
                 redirect projectInstance
             }
             '*'{ respond projectInstance, [status: OK] }
@@ -85,7 +86,8 @@ class ProjectController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Project.label', default: 'Project'), projectInstance.id])
+                flash.message = message(code: 'default.deleted.message',
+										args: [message(code: 'project.label', default: 'Project'), projectInstance.id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }

@@ -10,7 +10,7 @@
 	<title>
 <band splitType="Stretch">
 <image scaleImage="RealSize" onErrorType="Icon" isLazy="true">
-                 <reportElement x="0" y="0" width="900"/>
+                 <reportElement x="0" y="0" width="900" height="60"/>
 
                 <imageExpression class="java.lang.String"><![CDATA["https://scontent-a.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/1512849_10201993201790439_3815626211902846663_n.jpg?oh=9df2648468164f6a0b2d1a4939ada2b2&oe=550BCDCE"]]></imageExpression>
             </image>
