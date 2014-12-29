@@ -23,12 +23,18 @@
 			<table>
 			<thead>
 					<tr>
-
-                        <g:sortableColumn property="speaker" title="${message(code: 'speech.speaker.label', default: 'Speaker')}" />
-                        <g:sortableColumn property="evaluator" title="${message(code: 'speech.evaluator.label', default: 'Evaluator')}" />
+					
+						<g:sortableColumn property="ahCounts" title="${message(code: 'speech.ahCounts.label', default: 'Ah Counts')}" />
+					
+						<g:sortableColumn property="duration" title="${message(code: 'speech.duration.label', default: 'Duration')}" />
+					
+						<th><g:message code="speech.events.label" default="Event" /></th>
+					
+						<g:sortableColumn property="project" title="${message(code: 'speech.project.label', default: 'Project')}" />
+					
+						<g:sortableColumn property="speaker" title="${message(code: 'speech.speaker.label', default: 'Speaker')}" />
+					
 						<g:sortableColumn property="speechType" title="${message(code: 'speech.speechType.label', default: 'Speech Type')}" />
-                        <g:sortableColumn property="speechType" title="${message(code: 'speech.events.label', default: 'Event #')}" />
-                        <g:sortableColumn property="speechType" title="${message(code: 'speech.date.label', default: 'Date')}" />
 					
 					</tr>
 				</thead>
@@ -36,19 +42,18 @@
 				<g:each in="${speechInstanceList}" status="i" var="speechInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${speechInstance.id}">${fieldValue(bean: speechInstance, field: "speaker")}</g:link></td>
-
-                        <td>${fieldValue(bean: speechInstance,
-                                field: "evaluator")}</td>
+						<td><g:link action="show" id="${speechInstance.id}">${fieldValue(bean: speechInstance, field: "ahCounts")}</g:link></td>
+					
+						<td>${fieldValue(bean: speechInstance, field: "duration")}</td>
+					
+						<td>${fieldValue(bean: speechInstance, field:
+                                "events.eventNumber")}</td>
+					
+						<td>${fieldValue(bean: speechInstance, field: "project")}</td>
+					
+						<td>${fieldValue(bean: speechInstance, field: "speaker")}</td>
 					
 						<td>${fieldValue(bean: speechInstance, field: "speechType")}</td>
-                        <td>${fieldValue(bean: speechInstance, field:
-                                "events.id")}</td>
-						<td>
-                            <g:formatDate
-                                    date="${speechInstance?.events.eventOn}"
-                                    format="dd-MMM-yyy"/>
-                        </td>
 					
 					</tr>
 				</g:each>

@@ -8,15 +8,15 @@ import groovy.transform.ToString
 class Speech implements Serializable{
 	static mapWith = "mongo"
 	static belongsTo = [events: Event]
-
+	static hasMany = [evaluations:Evaluation]
 	String title;
 	String speaker;
-	String evaluator;
+
 	String project;
 	String speechType;
 	String duration;
 	String ahCounts;
-	String comments;
+
 
 	static constraints = {
 	}

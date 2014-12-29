@@ -22,90 +22,81 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<ol class="property-list speech">
-                <g:if test="${speechInstance?.events}">
-                    <li class="fieldcontain">
-                        <span id="events-label" class="property-label"><g:message code="speech.events.label" default="Events" /></span>
-
-                        <span class="property-value"
-                              aria-labelledby="events-label"><g:link
-                                controller="event" action="show" id="${speechInstance?.events?.id}">${speechInstance?.events?.id}</g:link></span>
-
-                    </li>
-                </g:if>
-
-                <g:if test="${speechInstance?.speaker}">
-                    <li class="fieldcontain">
-                        <span id="speaker-label" class="property-label"><g:message code="speech.speaker.label" default="Speaker" /></span>
-
-                        <span class="property-value" aria-labelledby="speaker-label"><g:fieldValue bean="${speechInstance}" field="speaker"/></span>
-
-                    </li>
-                </g:if>
-
-                <g:if test="${speechInstance?.title}">
-                    <li class="fieldcontain">
-                        <span id="title-label" class="property-label"><g:message code="speech.title.label" default="Title" /></span>
-
-                        <span class="property-value" aria-labelledby="title-label"><g:fieldValue bean="${speechInstance}" field="title"/></span>
-
-                    </li>
-                </g:if>
-
-
-                <g:if test="${speechInstance?.speechType}">
-                    <li class="fieldcontain">
-                        <span id="speechType-label" class="property-label"><g:message code="speech.speechType.label" default="Speech Type" /></span>
-
-                        <span class="property-value" aria-labelledby="speechType-label"><g:fieldValue bean="${speechInstance}" field="speechType"/></span>
-
-                    </li>
-                </g:if>
-
-                <g:if test="${speechInstance?.project}">
-                    <li class="fieldcontain">
-                        <span id="project-label" class="property-label"><g:message code="speech.project.label" default="Project" /></span>
-
-                        <span class="property-value" aria-labelledby="project-label"><g:fieldValue bean="${speechInstance}" field="project"/></span>
-
-                    </li>
-                </g:if>
-
-				<g:if test="${speechInstance?.evaluator}">
+			
+				<g:if test="${speechInstance?.ahCounts}">
 				<li class="fieldcontain">
-					<span id="evaluator-label" class="property-label"><g:message code="speech.evaluator.label" default="Evaluator" /></span>
+					<span id="ahCounts-label" class="property-label"><g:message code="speech.ahCounts.label" default="Ah Counts" /></span>
 					
-						<span class="property-value" aria-labelledby="evaluator-label"><g:fieldValue bean="${speechInstance}" field="evaluator"/></span>
+						<span class="property-value" aria-labelledby="ahCounts-label"><g:fieldValue bean="${speechInstance}" field="ahCounts"/></span>
 					
 				</li>
 				</g:if>
-
-                <g:if test="${speechInstance?.duration}">
-                    <li class="fieldcontain">
-                        <span id="duration-label" class="property-label"><g:message code="speech.duration.label" default="Duration" /></span>
-
-                        <span class="property-value" aria-labelledby="duration-label"><g:fieldValue bean="${speechInstance}" field="duration"/></span>
-
-                    </li>
-                </g:if>
-
-                <g:if test="${speechInstance?.ahCounts}">
-                    <li class="fieldcontain">
-                        <span id="ahCounts-label" class="property-label"><g:message code="speech.ahCounts.label" default="Ah Counts" /></span>
-
-                        <span class="property-value" aria-labelledby="ahCounts-label"><g:fieldValue bean="${speechInstance}" field="ahCounts"/></span>
-
-                    </li>
-                </g:if>
-
-                <g:if test="${speechInstance?.comments}">
-                    <li class="fieldcontain">
-                        <span id="comments-label" class="property-label"><g:message code="speech.comments.label" default="Comments" /></span>
-
-                        <span class="property-value" aria-labelledby="comments-label"><g:fieldValue bean="${speechInstance}" field="comments"/></span>
-
-                    </li>
-                </g:if>
-
+			
+				<g:if test="${speechInstance?.duration}">
+				<li class="fieldcontain">
+					<span id="duration-label" class="property-label"><g:message code="speech.duration.label" default="Duration" /></span>
+					
+						<span class="property-value" aria-labelledby="duration-label"><g:fieldValue bean="${speechInstance}" field="duration"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${speechInstance?.evaluations}">
+				<li class="fieldcontain">
+					<span id="evaluations-label" class="property-label"><g:message code="speech.evaluations.label" default="Evaluations" /></span>
+					
+						<g:each in="${speechInstance.evaluations}" var="e">
+						<span class="property-value" aria-labelledby="evaluations-label"><g:link controller="evaluation" action="show" id="${e.id}">${e?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${speechInstance?.events}">
+				<li class="fieldcontain">
+					<span id="events-label" class="property-label"><g:message code="speech.events.label" default="Event" /></span>
+					
+						<span class="property-value" aria-labelledby="events-label"><g:link controller="event" action="show" id="${speechInstance?.events?.id}">${speechInstance?.events?.eventNumber}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${speechInstance?.project}">
+				<li class="fieldcontain">
+					<span id="project-label" class="property-label"><g:message code="speech.project.label" default="Project" /></span>
+					
+						<span class="property-value" aria-labelledby="project-label"><g:fieldValue bean="${speechInstance}" field="project"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${speechInstance?.speaker}">
+				<li class="fieldcontain">
+					<span id="speaker-label" class="property-label"><g:message code="speech.speaker.label" default="Speaker" /></span>
+					
+						<span class="property-value" aria-labelledby="speaker-label"><g:fieldValue bean="${speechInstance}" field="speaker"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${speechInstance?.speechType}">
+				<li class="fieldcontain">
+					<span id="speechType-label" class="property-label"><g:message code="speech.speechType.label" default="Speech Type" /></span>
+					
+						<span class="property-value" aria-labelledby="speechType-label"><g:fieldValue bean="${speechInstance}" field="speechType"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${speechInstance?.title}">
+				<li class="fieldcontain">
+					<span id="title-label" class="property-label"><g:message code="speech.title.label" default="Title" /></span>
+					
+						<span class="property-value" aria-labelledby="title-label"><g:fieldValue bean="${speechInstance}" field="title"/></span>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form url="[resource:speechInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">

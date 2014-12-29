@@ -1,6 +1,7 @@
 # Maven build artifacts
 target
 java/out
+/out/*
 java/test*
 # IntelliJ project files
 .idea

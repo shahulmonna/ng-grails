@@ -13,7 +13,7 @@
     <g:if test="${exception}">
         <div>
 
-view
+
             Error details: ${exception.className}
         </div>
         <p style="padding: 10px 0 20px 10px; min-height: calc(100vh - 180px)">

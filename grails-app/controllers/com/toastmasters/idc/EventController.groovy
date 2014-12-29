@@ -1,5 +1,6 @@
 package com.toastmasters.idc
 
+import com.toastmasters.idc.exception.NGException
 import grails.transaction.Transactional
 
 import static org.springframework.http.HttpStatus.CREATED
@@ -8,7 +9,7 @@ import static org.springframework.http.HttpStatus.NO_CONTENT
 import static org.springframework.http.HttpStatus.OK
 
 @Transactional(readOnly = true)
-class EventController {
+class EventController{
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 def pdfRenderingService
@@ -16,10 +17,18 @@ def pdfRenderingService
 	def renderAgenda(){
 		/*def args =[template:"/pdf/agenda",model:[memberInstanceList:Member.list()],
 							 controller:this]*/
-		params.eventNumber=8;
-		def args = reportService.generateAgenda(params.eventNumber as String)
-		args << [controller:this];
-		pdfRenderingService.render(args,response)
+		//params.meetingNo=8;
+		println("meetingNo : ${params.meetingNo}")
+		def args = reportService.generateAgenda(params.meetingNo as String)
+		if(args && args.model.event) {
+			args << [controller: this];
+			println("event ${args.model.event}")
+			pdfRenderingService.render(args, response)
+		}else {
+			def ngException  = new NGException();
+			ngException.errorMessages="Invalid meeting request";
+			throw ngException;
+		}
 	}
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)

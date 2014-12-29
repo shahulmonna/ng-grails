@@ -4,7 +4,7 @@ class UrlMappings {
 		"/api/members"(resources:'member')
 
 
-		name renderAgenda: "/renderAgenda" {
+		name agenda: "/agenda/${meetingNo}" {
 			controller = "event"
 			action = "renderAgenda"
 		}
@@ -15,7 +15,7 @@ class UrlMappings {
 		}
 
 		"/"(view: "/index")
-		"500"(view: '/error')
+		"500"(controller: "error" ,action: index, view: "/error")
 
 	}
 }

@@ -20,9 +20,7 @@ class SpeechController {
     }
 
     def create() {
-        respond (new Speech(params), model:[speechTypes:SpeechType.list(),
-																						projects:Project.list(),
-																						members: Member.list()])
+        respond new Speech(params)
     }
 
     @Transactional
@@ -68,8 +66,7 @@ class SpeechController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message',
-										args: [message(code: 'speech.label', default: 'Speech'), speechInstance.id])
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'Speech.label', default: 'Speech'), speechInstance.id])
                 redirect speechInstance
             }
             '*'{ respond speechInstance, [status: OK] }
@@ -88,8 +85,7 @@ class SpeechController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message',
-										args: [message(code: 'speech.label', default: 'Speech'), speechInstance.id])
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Speech.label', default: 'Speech'), speechInstance.id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
