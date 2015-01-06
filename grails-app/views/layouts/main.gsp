@@ -20,23 +20,40 @@
     <link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
 
     <asset:stylesheet src="application.css"/>
+
     <asset:javascript src="application.js"/>
     <g:layoutHead/>
 </head>
 
 <body>
 <header>
-    <div id="grailsLogo" role="banner">
-       <a href="http://toastmasters.org">
-            <asset:image src="toastmasters-logo@2x.png" alt="Toastmasters"
-                         style="max-width:115px;"/></a>
+    <div style="display: table; width: 100%; height: 150px;" id="grailsLogo" role="banner">
+        <div style="display: table-row;">
+            <div style="display: table-cell; width: 20%; vertical-align: middle;">
+                <a href="http://toastmasters.org">
 
-        <span>Tarento India Toastmasters Club</span>
+                    <img src="/images/toastmasters-logo@2x.png"
+                         alt="Toastmasters"  style="max-width:100px;"/>
+                </a>
+            </div>
 
-        <a href="http://idc.tarento.com">
-            <asset:image src="Acando_Tarento.png" alt="Tarento"
-                         style="max-width:160px;"/></a>
+            <div style="display: table-cell; width: 60%; text-align: center; vertical-align: middle;">
+                <span style="font-size: 24px; font-weight: 700; color: #EFEFEF;">Tarento
+                India Toastmasters
+                Club</span><br/>
+                <span style="font-size: 24px; font-weight: 700; color: #EFEFEF;">
+                #04329635</span><br/>
+            </div>
+            <div style="display: table-cell; width: 20%; vertical-align: middle;">
+                <a href="http://idc.tarento.com">
+
+                    <img src="/images/Acando_Tarento.png" alt="Tarento"
+                         style="max-width:130px;"/>
+                </a>
+            </div>
+        </div>
     </div>
+
 </header>
 
 <g:layoutBody/>

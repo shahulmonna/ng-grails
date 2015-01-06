@@ -28,7 +28,7 @@
     <link href="js/owl-carousel/owl.carousel.css" rel="stylesheet">
     <link rel="stylesheet" href="css/darktouch-style.css" />
     <!-- Font Awesome -->
-    <link href="fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="fonts/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -299,7 +299,7 @@
                 <div class="row">
                     <div class="portfolio-items isotopeWrapper clearfix" id="3">
 
-                        <article class="col-sm-4 isotopeItem webdesign" data-category="webdesign">
+                        <article class="col-sm-4 isotopeItem webdesign">
                             <div class="portfolio-item">
                                 <img src="images/portfolio/img1.jpg" alt="" />
                                 <div class="portfolio-desc align-center">
@@ -312,7 +312,7 @@
                             </div>
                         </article>
 
-                        <article class="col-sm-4 isotopeItem photography" data-category="photography">
+                        <article class="col-sm-4 isotopeItem photography">
                             <div class="portfolio-item">
                                 <img src="images/portfolio/img2.jpg" alt="" />
                                 <div class="portfolio-desc align-center">
@@ -326,8 +326,7 @@
                         </article>
 
 
-                        <article
-                                class="col-sm-4 isotopeItem photography" data-category="photography">
+                        <article class="col-sm-4 isotopeItem photography">
                             <div class="portfolio-item">
                                 <img src="images/portfolio/img3.jpg" alt="" />
                                 <div class="portfolio-desc align-center">
@@ -340,7 +339,7 @@
                             </div>
                         </article>
 
-                        <article class="col-sm-4 isotopeItem print" data-category="print">
+                        <article class="col-sm-4 isotopeItem print">
                             <div class="portfolio-item">
                                 <img src="images/portfolio/img4.jpg" alt="" />
                                 <div class="portfolio-desc align-center">
@@ -353,7 +352,7 @@
                             </div>
                         </article>
 
-                        <article class="col-sm-4 isotopeItem photography" data-category="photography">
+                        <article class="col-sm-4 isotopeItem photography">
                             <div class="portfolio-item">
                                 <img src="images/portfolio/img5.jpg" alt="" />
                                 <div class="portfolio-desc align-center">
@@ -366,7 +365,7 @@
                             </div>
                         </article>
 
-                        <article class="col-sm-4 isotopeItem webdesign" data-category="webdesign">
+                        <article class="col-sm-4 isotopeItem webdesign">
                             <div class="portfolio-item">
                                 <img src="images/portfolio/img6.jpg" alt="" />
                                 <div class="portfolio-desc align-center">
@@ -379,7 +378,7 @@
                             </div>
                         </article>
 
-                        <article class="col-sm-4 isotopeItem print" data-category="print">
+                        <article class="col-sm-4 isotopeItem print">
                             <div class="portfolio-item">
                                 <img src="images/portfolio/img7.jpg" alt="" />
                                 <div class="portfolio-desc align-center">
@@ -392,7 +391,7 @@
                             </div>
                         </article>
 
-                        <article class="col-sm-4 isotopeItem photography" data-category="photography">
+                        <article class="col-sm-4 isotopeItem photography">
                             <div class="portfolio-item">
                                 <img src="images/portfolio/img8.jpg" alt="" />
                                 <div class="portfolio-desc align-center">
@@ -405,7 +404,7 @@
                             </div>
                         </article>
 
-                        <article class="col-sm-4 isotopeItem print" data-category="print">
+                        <article class="col-sm-4 isotopeItem print">
                             <div class="portfolio-item">
                                 <img src="images/portfolio/img9.jpg" alt="" />
                                 <div class="portfolio-desc align-center">
