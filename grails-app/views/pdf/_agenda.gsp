@@ -224,17 +224,19 @@ url('https://achieverstoastmasters.files.wordpress.com/2011/11/cropped-blueandye
                     text-align: left; padding-left: 5px;">
                         <span style="font-weight: 600;">Toastmaster Introduces
                         the</span><br/>
+                        General Evaluator<br/>
                     Ah Counter<br/>
                         Timer<br/>
-                        Grammarian<br/>
-                        General Evaluator<br/>
+                        Grammarian
+
                     </div>
                     <div style="display: table-cell; width: 30%; text-align:
                     left; padding-left: 5px;"><br/>
+                        ${event.ge}<br/>
                         ${event.ahCounter}<br/>
                         ${event.timeManager}<br/>
-                        ${event.grammarian}<br/>
-                        ${event.ge}
+                        ${event.grammarian}
+
                     </div>
                 </div>
 
