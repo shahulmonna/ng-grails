@@ -38,7 +38,14 @@
 .da-slide .da-img{
 	position: absolute;
 	opacity: 0;
-	left: 110%;
+	left: 1%;
+}
+.da-slide .da-img img{
+    max-width: 170px;
+}
+
+.da-slide .da-img-tm img{
+    max-width: 100px;
 }
 .da-slider-fb .da-slide h2,
 .da-slider-fb .da-slide p,
@@ -47,14 +54,14 @@
 	opacity: 1;
 }
 .da-slider-fb .da-slide .da-img{
-	left: 60%;
+	left: 1%;
 	opacity: 1;
 }
 .da-slide h2{
 	color: #fff;
 	font-size: 66px;
 	width: 50%;
-	top: 60px;
+	top: 155px;
 	white-space: nowrap;
 	z-index: 10;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.1); 
@@ -62,7 +69,7 @@
 }
 .da-slide p{
 	width: 45%;
-	top: 155px;
+	top: 215px;
 	color: #916c05;
 	font-size: 18px;
 	line-height: 26px;
@@ -75,11 +82,12 @@
 .da-slide .da-img{
 	text-align: center;
 	width: 30%;
-	top: 70px;
+	top: 5px;
 	height: 256px;
-	line-height: 320px;
-	left: 110%; /*60%*/
+	line-height: 215px;
+	left: 1%; /*60%*/
 }
+
 .da-slide .da-link{
 	top: 270px; /*depends on p height*/
 	color: #fff;

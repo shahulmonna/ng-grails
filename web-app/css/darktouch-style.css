@@ -23,12 +23,12 @@ body {
 
 ::selection {
     color: #fff;
-    background: #00bfff;
+    background: #005591;
 }
 
 ::-moz-selection {
     color: #fff;
-    background: #00bfff;
+    background: #005591;
 }
 
 p {
@@ -54,7 +54,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn {
-    background: #00bfff;
+    background: #005591;
 }
 
 .btn:hover {
@@ -85,7 +85,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-    color: #00bfff;
+    color: #005591;
     text-decoration: none;
     text-shadow: none;
     -webkit-transition: all 0.2s linear;
@@ -106,7 +106,7 @@ a:hover {
 }
 
 .btn-primary {
-    background: #00bfff;
+    background: #005591;
 }
 
 .form-control {
@@ -136,7 +136,7 @@ a:hover {
 /* Header
 ----------------------------------------------*/
 #section-top {
-    background: #4E4E4E;
+    background: #E4E4E4;
 }
 
 #section-top ul {
@@ -174,20 +174,20 @@ a:hover {
 }
 
 .navbar-inverse .navbar-toggle {
-    border-color: #00bfff;
-    background-color: #00bfff;
+    border-color: #005591;
+    background-color: #005591;
 }
 
 .navbar-inverse .navbar-toggle .icon-bar {
-    /*background-color: #00bfff;*/;
+    /*background-color: #005591;*/;
 }
 
 .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
-    background: #00bfff;
+    background: #005591;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
-    color: #00bfff;
+    color: #005591;
 }
 
 .navbar-inverse .navbar-toggle:hover .icon-bar {
@@ -199,7 +199,7 @@ a:hover {
 /*.carousel-inner*/
 #myCarousel {
     margin-top: 50px;
-    border-bottom: 4px solid #00bfff;
+    border-bottom: 4px solid #005591;
 }
 
 .carousel-inner > .item {
@@ -231,7 +231,7 @@ a:hover {
 
 .actionPanel {
     padding: 25px 0;
-    background: #00bfff;
+    background: #005591;
 }
 
 .actionPanel h3 {
@@ -239,7 +239,7 @@ a:hover {
 }
 
 .circle {
-    background: #00bfff;
+    background: #005591;
     height: 60px;
     width: 60px;
     border-radius: 35px;
@@ -258,15 +258,15 @@ a:hover {
     padding: 16px 15px;
     line-height: 18px;
     height: 50px;
-    /*color:#00bfff;*/;
+    /*color:#005591;*/;
 }
 
 .navbar-brand b {
-    color: #000;
+    color: #005591;
 }
 
 .logo {
-    font-size: 2.2em;
+    font-size: 1.4em;
     text-shadow: none;
     margin: 8px 0 0 0;
 }
@@ -293,12 +293,12 @@ a:hover {
 }
 
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
-    color: #00bfff;
+    color: #005591;
     background: none;
 }
 
 .navbar-nav > li:hover > a {
-    color: #00bfff;
+    color: #005591;
 }
 
 .header .navbar-nav > li > a {
@@ -326,7 +326,7 @@ a:hover {
 }
 
 .page-section h2 {
-    color: #00bfff;
+    color: #005591;
 }
 
 .page-section p {
@@ -339,7 +339,7 @@ a:hover {
 }
 
 .darkBg .fa {
-    color: #00bfff;
+    color: #005591;
 }
 /*--- Banner ----*/
 .banner-container {
@@ -352,7 +352,7 @@ a:hover {
     background-size: cover;
     margin-top: 60px;
     position: relative;
-    border-bottom: 2px #00bfff solid;
+    border-bottom: 2px #005591 solid;
 }
 
 .banner-container > img {
@@ -368,8 +368,8 @@ a:hover {
 }
 
 .banner-content h2 {
-    color: #00bfff;
-    font-size: 3.5em;
+    color: #005591;
+    font-size: 2.5em;
     margin: 2% 0 30px;
     line-height: 1.2em;
     font-family: 'Roboto', sans-serif;
@@ -440,7 +440,7 @@ a:hover {
     margin: 3px;
     cursor: pointer;
     box-shadow: 1px 1px 1px rgba(0,0,0,0.1) inset, 1px 1px 1px rgba(255,255,255,0.1);
-    border: 2px solid #00bfff;
+    border: 2px solid #005591;
 }
 /* Services
     -------------------------------------------------*/
@@ -513,7 +513,7 @@ a:hover {
 }
 
 #contactUs {
-    /*background: #00bfff;*/
+    /*background: #005591;*/
 }
 
 #contactUs .btn {
@@ -576,12 +576,12 @@ nav#filter li {
 nav#filter a {
     padding: 4px 12px;
     line-height: 20px;
-    border: 1px solid #00bfff;
+    border: 1px solid #005591;
     text-decoration: none;
 }
 
 .current {
-    background: #00bfff;
+    background: #005591;
     color: #fff;
 }
 
@@ -764,7 +764,7 @@ footer {
 }
 
 .social a:hover {
-    color: #00bfff;
+    color: #005591;
 }
 
 .social a {
@@ -836,6 +836,8 @@ footer {
     }
 
     .da-slide p {
+        font-size: 13px;
+        font-weight: 600;
         width: 67%;
         top: 122px;
     }
@@ -891,13 +893,13 @@ footer {
     }
 
     .da-slide h2 {
-        font-size: 22px;
-        top: 7px;
-        text-shadow:none;
+        font-size: 14px;
+        top: 60px;
+        /*text-shadow:none;*/
     }
     .da-slide p {
         width: 65%;
-        top: 42px;
+        top: 80px;
         height: 50px;
     }
 
@@ -1085,7 +1087,7 @@ footer {
 }
 
 .flat .plan.featured:hover li.plan-name, .flat .plan:hover li.plan-name, .flat .plan.featured.plan-name {
-    background: #00bfff !important;
+    background: #005591 !important;
 }
 
 .customNavigation {

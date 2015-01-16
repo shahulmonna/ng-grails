@@ -1,83 +1,54 @@
-<!-- scrollToTop -->
-<!-- ================ -->
-<div class="scrollToTop"><i class="icon-up-open-big"></i></div>
+<header class="header">
+    <section id="section-top" class="section section-top">
+        <div class="container">
+            <div class="row">
+                <div class="region region-top-first col-xs-12 col-sm-8 col-md-7 col-lg-7">
+                    <div class="block-contents ">
 
-<!-- header start -->
-<!-- ================ -->
-<header class="header fixed clearfix navbar navbar-fixed-top">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
+                        <div class="content">
+                            <ul>
+                                <li><a target="_blank"
+                                        href="https://www.facebook.com/groups/724248577661468/"><span data-toggle="tooltip" data-placement="bottom" class="superhero-tooltip" data-original-title="Facebook"><i class="fa fa-facebook"><span></span></i></span></a></li>
+                                <li><a target="_blank"
+                                        href="https://plus.google.com/u/1/communities/110163161705902211076"><span data-toggle="tooltip" data-placement="bottom" class="superhero-tooltip" data-original-title="Google+"><i class="fa fa-google-plus"><span></span></i></span></a></li>
 
-                <!-- header-left start -->
-                <!-- ================ -->
-                <div class="header-left clearfix">
-
-                    <!-- logo -->
-                    <div class="logo smooth-scroll">
-                        %{--<a href="#banner"><asset:image src="toastmasters-logo@2x.png" alt="Toastmasters"
-                                                       style="max-width:75px;"/></a>--}%
+                            </ul>
+                        </div>
                     </div>
-
-                    <!-- name-and-slogan -->
-                    <div class="site-name-and-slogan smooth-scroll">
-                        <div class="site-name"><a href="#banner">Tarento India Toastmasters Club</a></div>
-                        <div class="site-slogan">WHERE LEADERS ARE MADE</div>
-                    </div>
-
+                    <div style="clear: both" class="clear-fix"></div>
                 </div>
-                <!-- header-left end -->
-
-            </div>
-            <div class="col-md-8">
-
-                <!-- header-right start -->
-                <!-- ================ -->
-                <div class="header-right clearfix">
-
-                    <!-- main-navigation start -->
-                    <!-- ================ -->
-                    <div class="main-navigation animated">
-
-                        <!-- navbar start -->
-                        <!-- ================ -->
-                        <nav class="navbar navbar-default" role="navigation">
-                            <div class="container-fluid">
-
-                                <!-- Toggle get grouped for better mobile display -->
-                                <div class="navbar-header">
-                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-                                        <span class="sr-only">Toggle navigation</span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                    </button>
-                                </div>
-
-                                <!-- Collect the nav links, forms, and other content for toggling -->
-                                <div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
-                                    <ul class="nav navbar-nav navbar-right">
-                                        <li class="active"><a href="#banner">Home</a></li>
-                                        <li><a href="#about">About</a></li>
-                                        <li><a href="#services">Services</a></li>
-                                        <li><a href="#portfolio">Portfolio</a></li>
-                                        <li><a href="#clients">Clients</a></li>
-                                        <li><a href="#contact">Contact</a></li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </nav>
-                        <!-- navbar end -->
-
-                    </div>
-                    <!-- main-navigation end -->
-
-                </div>
-                <!-- header-right end -->
-
             </div>
         </div>
+    </section>
+
+    <div class="container">
+        <nav class="navbar navbar-inverse" role="navigation">
+            <div class="navbar-header">
+                <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#"
+                   class="navbar-brand scroll-top logo"><b>Tarento
+                India Toastmasters Club</b></a>
+            </div>
+            <!--/.navbar-header-->
+            <div id="main-nav" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav" id="mainNav">
+                    <li class="active"><a href="#home" class="scroll-link">Home</a></li>
+                    <li><a href="#aboutUs" class="scroll-link">About Us</a></li>
+                    <li><a href="#services" class="scroll-link">Services</a></li>
+                    <li><a href="#portfolio" class="scroll-link">Photos</a></li>
+                    <li><a href="#team" class="scroll-link">Team</a></li>
+                    <li><a href="#contactUs" class="scroll-link">Contact Us</a></li>
+                </ul>
+            </div>
+            <!--/.navbar-collapse-->
+        </nav>
+        <!--/.navbar-->
     </div>
+    <!--/.container-->
 </header>
-<!-- header end -->
+<!--/.header-->
