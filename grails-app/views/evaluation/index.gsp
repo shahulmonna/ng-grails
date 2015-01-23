@@ -11,7 +11,7 @@
 		<a href="#list-evaluation" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+				<li><a class="home" href="${createLink(uri: '/index-bkp')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
@@ -23,11 +23,15 @@
 			<table>
 			<thead>
 					<tr>
-                        <g:sortableColumn property="comments" title="${message(code: 'evaluation.comments.label', default: 'Meeting')}" />
 
+                        <th><g:message code="project.name.label"
+                                       default="Project" /></th>
+                        <th><g:message code="speech.speaker.label"
+                                       default="Speaker" /></th>
+					
 						<g:sortableColumn property="evaluator" title="${message(code: 'evaluation.evaluator.label', default: 'Evaluator')}" />
 					
-						<th><g:message code="evaluation.speech.label" default="Speech" /></th>
+
 					
 					</tr>
 				</thead>
@@ -35,12 +39,13 @@
 				<g:each in="${evaluationInstanceList}" status="i" var="evaluationInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
                         <td><g:link action="show"
-                                    id="${evaluationInstance.id}">${fieldValue(bean: evaluationInstance, field: "speech.events.eventNumber")}</g:link></td>
+                                    id="${evaluationInstance.id}">${fieldValue(bean: evaluationInstance, field: "speech.project")}</g:link></td>
 
+                        <td>${fieldValue(bean: evaluationInstance, field:
+                                "speech.speaker")}</td>
 						<td>${fieldValue(bean: evaluationInstance, field: "evaluator")}</td>
 					
-						<td>${fieldValue(bean: evaluationInstance, field:
-                                "speech.speaker")}</td>
+
 					
 					</tr>
 				</g:each>

@@ -4,7 +4,7 @@
 <!--[if IE 8 ]>    <html lang="en-gb" class="isie ie8 oldie no-js"> <![endif]-->
 <!--[if IE 9 ]>    <html lang="en-gb" class="isie ie9 no-js"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
-<html lang="en-gb" class="no-js">
+<html lang="en-gb" class="no-js" ng-app>
 <!--<![endif]-->
 <head>
     <meta charset="utf-8">
@@ -53,7 +53,7 @@
 
     <!-- Custom css -->
     <link href="css/custom.css" rel="stylesheet">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>
     <g:layoutHead/>
 </head>
 

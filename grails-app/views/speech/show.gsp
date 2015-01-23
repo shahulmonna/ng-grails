@@ -11,7 +11,7 @@
 		<a href="#show-speech" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+				<li><a class="home" href="${createLink(uri: '/index-bkp')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
@@ -46,7 +46,9 @@
 					<span id="evaluations-label" class="property-label"><g:message code="speech.evaluations.label" default="Evaluations" /></span>
 					
 						<g:each in="${speechInstance.evaluations}" var="e">
-						<span class="property-value" aria-labelledby="evaluations-label"><g:link controller="evaluation" action="show" id="${e.id}">${e?.encodeAsHTML()}</g:link></span>
+						<span class="property-value"
+                              aria-labelledby="evaluations-label"><g:link
+                                controller="evaluation" action="show" id="${e.id}">${e?.evaluationType?.encodeAsHTML()}</g:link></span>
 						</g:each>
 					
 				</li>

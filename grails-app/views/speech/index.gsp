@@ -11,7 +11,7 @@
 		<a href="#list-speech" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+				<li><a class="home" href="${createLink(uri: '/index-bkp')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
@@ -23,37 +23,26 @@
 			<table>
 			<thead>
 					<tr>
-					
-						<g:sortableColumn property="ahCounts" title="${message(code: 'speech.ahCounts.label', default: 'Ah Counts')}" />
-					
-						<g:sortableColumn property="duration" title="${message(code: 'speech.duration.label', default: 'Duration')}" />
-					
+
+                        <g:sortableColumn property="speaker" title="${message(code: 'speech.speaker.label', default: 'Speaker')}" />
+                        <g:sortableColumn property="speechType" title="${message(code: 'speech.speechType.label', default: 'Speech Type')}" />
 						<th><g:message code="speech.events.label" default="Event" /></th>
-					
 						<g:sortableColumn property="project" title="${message(code: 'speech.project.label', default: 'Project')}" />
-					
-						<g:sortableColumn property="speaker" title="${message(code: 'speech.speaker.label', default: 'Speaker')}" />
-					
-						<g:sortableColumn property="speechType" title="${message(code: 'speech.speechType.label', default: 'Speech Type')}" />
-					
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${speechInstanceList}" status="i" var="speechInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="show" id="${speechInstance.id}">${fieldValue(bean: speechInstance, field: "ahCounts")}</g:link></td>
-					
-						<td>${fieldValue(bean: speechInstance, field: "duration")}</td>
+                        <td><g:link action="show" id="${speechInstance.id}">${fieldValue(bean: speechInstance, field: "speaker")}</g:link></td>
+
+                        <td>${fieldValue(bean: speechInstance, field: "speechType")}</td>
 					
 						<td>${fieldValue(bean: speechInstance, field:
                                 "events.eventNumber")}</td>
 					
 						<td>${fieldValue(bean: speechInstance, field: "project")}</td>
 					
-						<td>${fieldValue(bean: speechInstance, field: "speaker")}</td>
-					
-						<td>${fieldValue(bean: speechInstance, field: "speechType")}</td>
+
 					
 					</tr>
 				</g:each>

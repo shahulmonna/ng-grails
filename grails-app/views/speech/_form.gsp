@@ -28,7 +28,7 @@
 	
 <ul class="one-to-many">
 <g:each in="${speechInstance?.evaluations?}" var="e">
-    <li><g:link controller="evaluation" action="show" id="${e.id}">${e?.encodeAsHTML()}</g:link></li>
+    <li><g:link controller="evaluation" action="show" id="${e.id}">${e?.evaluationType?.encodeAsHTML()}</g:link></li>
 </g:each>
 <li class="add">
 <g:link controller="evaluation" action="create" params="['speech.id': speechInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'evaluation.label', default: 'Evaluation')])}</g:link>

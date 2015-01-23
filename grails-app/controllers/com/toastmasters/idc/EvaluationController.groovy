@@ -20,7 +20,8 @@ class EvaluationController {
     }
 
     def create() {
-        respond new Evaluation(params)
+        respond new Evaluation(params),
+						model:[evaluationTypes:Evaluation_Type.list()]
     }
 
     @Transactional
@@ -47,7 +48,7 @@ class EvaluationController {
     }
 
     def edit(Evaluation evaluationInstance) {
-        respond evaluationInstance
+        respond evaluationInstance,model:[evaluationTypes:Evaluation_Type.list()]
     }
 
     @Transactional

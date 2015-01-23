@@ -15,6 +15,7 @@ class UrlMappings {
 		}
 
 		"/"(view: "/index")
+		"/index-bkp"(view: "/index-bkp")
 		"500"(controller: "error" ,action: index, view: "/error")
 
 	}

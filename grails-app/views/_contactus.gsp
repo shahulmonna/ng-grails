@@ -17,7 +17,10 @@
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control" name="name" id="name" placeholder="Enter name" title="Please enter your name (at least 2 characters)">
+                            <input type="text" class="form-control"
+                                   ng-model="guestName"
+                                   name="name" id="name" placeholder="Enter name" title="Please enter your name (at least 2 characters)">
+                            {{guestName}}
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
