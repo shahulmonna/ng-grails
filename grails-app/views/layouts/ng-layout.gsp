@@ -38,27 +38,28 @@
     <link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/isotope.css" media="screen" />
-    <link rel="stylesheet" href="js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="css/da-slider.css" />
+    <link rel="stylesheet"
+          href="${createLink(uri: '/')}css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="${createLink(uri: '/')}css/isotope.css" media="screen" />
+    <link rel="stylesheet" href="${createLink(uri: '/')}js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="${createLink(uri: '/')}css/da-slider.css" />
     <!-- Owl Carousel Assets -->
-    <link href="js/owl-carousel/owl.carousel.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/darktouch-style.css" />
+    <link href="${createLink(uri: '/')}js/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link rel="stylesheet" href="${createLink(uri: '/')}css/darktouch-style.css" />
     <!-- Font Awesome -->
-    <link href="fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="${createLink(uri: '/')}fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Plugins -->
-    <link href="css/animations.css" rel="stylesheet">
+    <link href="${createLink(uri: '/')}css/animations.css" rel="stylesheet">
 
     <!-- Custom css -->
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="${createLink(uri: '/')}css/custom.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>
     <g:layoutHead/>
 </head>
 
 <body>
-<g:render template="/header"/>
+
 <g:layoutBody/>
 
 <script>

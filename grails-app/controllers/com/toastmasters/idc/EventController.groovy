@@ -30,6 +30,21 @@ def pdfRenderingService
 			throw ngException;
 		}
 	}
+
+	def agenda(){
+		/*def args =[template:"/pdf/agenda",model:[memberInstanceList:Member.list()],
+							 controller:this]*/
+		//params.meetingNo=8;
+		println("meetingNo : ${params.meetingNo}")
+/*
+		def args = [template: "/meeting-agenda",
+								model: [event: Event.findByEventNumber(params.meetingNo as String),
+												userRoles:UserRole.findAll()]]*/
+		println(Event.findByEventNumber(params.meetingNo).toString())
+		respond (Event.findByEventNumber(params.meetingNo),model:[userRoles:UserRole.findAll()]);
+	}
+
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Event.list(params), model:[eventInstanceCount: Event.count()]

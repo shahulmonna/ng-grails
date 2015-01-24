@@ -4,10 +4,16 @@ class UrlMappings {
 		"/api/members"(resources:'member')
 
 
-		name agenda: "/agenda/${meetingNo}" {
+		name agenda: "/agenda-pdf/${meetingNo}" {
 			controller = "event"
 			action = "renderAgenda"
 		}
+
+		name agenda: "/agenda/${meetingNo}" {
+			controller = "event"
+			action = "agenda"
+		}
+
 		"/$controller/$action?/$id?(.$format)?" {
 			constraints {
 				// apply constraints here

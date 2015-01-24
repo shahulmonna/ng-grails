@@ -11,7 +11,6 @@ class Member implements Serializable{
 	String emailId
 	String contactNumber
 	String imageUrl
-	
 	String memberId
 	String status
 	Date registered

@@ -12,7 +12,7 @@
 </head>
 
 <body>
-
+<g:render template="/header"/>
 <div id="#top"></div>
 <g:render template="/home"/>
 <g:render template="/aboutus"/>
