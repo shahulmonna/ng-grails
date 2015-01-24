@@ -11,7 +11,7 @@
 		<a href="#show-educationProgram" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/index-bkp')}"><g:message code="default.home.label"/></a></li>
+                <li><a class="home" href="${createLink(uri: '/index-bkp')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
@@ -28,6 +28,17 @@
 					<span id="name-label" class="property-label"><g:message code="educationProgram.name.label" default="Name" /></span>
 					
 						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${educationProgramInstance}" field="name"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${educationProgramInstance?.projects}">
+				<li class="fieldcontain">
+					<span id="projects-label" class="property-label"><g:message code="educationProgram.projects.label" default="Projects" /></span>
+					
+						<g:each in="${educationProgramInstance.projects}" var="p">
+						<span class="property-value" aria-labelledby="projects-label"><g:link controller="project" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>

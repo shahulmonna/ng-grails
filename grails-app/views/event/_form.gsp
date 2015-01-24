@@ -16,11 +16,10 @@
 	</label>
 
     <g:if test="${members?.size()}">
-        <select name="emcee" id="emcee">
-            <g:each in="${members}" var="entry">
-                <option value="${entry.name}">${entry.name}</option>
-            </g:each>
-        </select>
+        <g:select id="emcee" name='emcee' value="${eventInstance?.emcee}"
+                  noSelection="${['':'Select One...']}"
+                  from='${members}'
+                  optionKey="name" optionValue="name"></g:select>
     </g:if>
     <g:else>
         <g:textField name="emcee" value="${eventInstance?.emcee}" />
@@ -78,8 +77,11 @@
         <g:message code="event.saa.label" default="Saa" />
 
     </label>
-    <g:textField name="saa" value="${eventInstance?.saa}" />
 
+    <g:select id="saa" name='saa' value="${eventInstance?.saa}"
+              noSelection="${['':'Select One...']}"
+              from='${members}'
+              optionKey="name" optionValue="name"></g:select>
 </div>
 
 
@@ -88,8 +90,11 @@
 		<g:message code="event.president.label" default="President" />
 		
 	</label>
-	<g:textField name="president" value="${eventInstance?.president}" />
 
+    <g:select id="president" name='president' value="${eventInstance?.president}"
+              noSelection="${['':'Select One...']}"
+              from='${members}'
+              optionKey="name" optionValue="name"></g:select>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: eventInstance, field: 'ttm', 'error')} ">
@@ -97,8 +102,11 @@
         <g:message code="event.ttm.label" default="Ttm" />
 
     </label>
-    <g:textField name="ttm" value="${eventInstance?.ttm}" />
 
+    <g:select id="ttm" name='ttm' value="${eventInstance?.ttm}"
+              noSelection="${['':'Select One...']}"
+              from='${members}'
+              optionKey="name" optionValue="name"></g:select>
 </div>
 
 <g:if test="${showSpeeches}">
@@ -144,8 +152,11 @@
         <g:message code="event.ge.label" default="Ge" />
 
     </label>
-    <g:textField name="ge" value="${eventInstance?.ge}" />
 
+    <g:select id="ge" name='ge' value="${eventInstance?.ge}"
+              noSelection="${['':'Select One...']}"
+              from='${members}'
+              optionKey="name" optionValue="name"></g:select>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: eventInstance, field: 'ahCounter', 'error')} ">
@@ -153,8 +164,11 @@
         <g:message code="event.ahCounter.label" default="Ah Counter" />
 
     </label>
-    <g:textField name="ahCounter" value="${eventInstance?.ahCounter}" />
 
+    <g:select id="ahCounter" name='ahCounter' value="${eventInstance?.ahCounter}"
+              noSelection="${['':'Select One...']}"
+              from='${members}'
+              optionKey="name" optionValue="name"></g:select>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: eventInstance, field: 'timeManager', 'error')} ">
@@ -162,8 +176,11 @@
         <g:message code="event.timeManager.label" default="Time Manager" />
 
     </label>
-    <g:textField name="timeManager" value="${eventInstance?.timeManager}" />
 
+    <g:select id="timeManager" name='timeManager' value="${eventInstance?.timeManager}"
+              noSelection="${['':'Select One...']}"
+              from='${members}'
+              optionKey="name" optionValue="name"></g:select>
 </div>
 
 
@@ -172,8 +189,11 @@
         <g:message code="event.grammarian.label" default="Grammarian" />
 
     </label>
-    <g:textField name="grammarian" value="${eventInstance?.grammarian}" />
 
+    <g:select id="grammarian" name='grammarian' value="${eventInstance?.grammarian}"
+              noSelection="${['':'Select One...']}"
+              from='${members}'
+              optionKey="name" optionValue="name"></g:select>
 </div>
 
 
@@ -182,6 +202,9 @@
         <g:message code="event.parliamentarian.label" default="Parliamentarian" />
 
     </label>
-    <g:textField name="parliamentarian" value="${eventInstance?.parliamentarian}" />
 
+    <g:select id="parliamentarian" name='parliamentarian' value="${eventInstance?.parliamentarian}"
+              noSelection="${['':'Select One...']}"
+              from='${members}'
+              optionKey="name" optionValue="name"></g:select>
 </div>

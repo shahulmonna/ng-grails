@@ -5,6 +5,7 @@ import groovy.transform.ToString
 @ToString
 class EducationProgram implements Serializable{
 	static mapWith = "mongo"
+	static hasMany = [projects:Project]
 	String name;
 
     static constraints = {

@@ -22,7 +22,18 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<ol class="property-list member">
-			
+
+                <g:if test="${memberInstance?.imageUrl}">
+                    <li class="fieldcontain">
+
+
+                        <span class="property-value" aria-labelledby="imageUrl-label">
+
+                            <img src="${memberInstance?.imageUrl}" alt="${memberInstance?.memberId}" style="max-width: 150px;">
+                        </span>
+
+                    </li>
+                </g:if>
 				<g:if test="${memberInstance?.club}">
 				<li class="fieldcontain">
 					<span id="club-label" class="property-label"><g:message code="member.club.label" default="Club" /></span>
@@ -67,15 +78,6 @@
 					<span id="emailId-label" class="property-label"><g:message code="member.emailId.label" default="Email Id" /></span>
 					
 						<span class="property-value" aria-labelledby="emailId-label"><g:fieldValue bean="${memberInstance}" field="emailId"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${memberInstance?.imageUrl}">
-				<li class="fieldcontain">
-					<span id="imageUrl-label" class="property-label"><g:message code="member.imageUrl.label" default="Image Url" /></span>
-					
-						<span class="property-value" aria-labelledby="imageUrl-label"><g:fieldValue bean="${memberInstance}" field="imageUrl"/></span>
 					
 				</li>
 				</g:if>

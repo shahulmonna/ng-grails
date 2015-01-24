@@ -52,8 +52,7 @@
 		<g:message code="speech.project.label" default="Project" />
 		
 	</label>
-	<g:textField name="project" value="${speechInstance?.project}" />
-
+    <g:select id="project" name="project" from="${com.toastmasters.idc.Project.list()}" optionKey="name" optionValue="name" required="true" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: speechInstance, field: 'speaker', 'error')} ">
@@ -61,7 +60,7 @@
 		<g:message code="speech.speaker.label" default="Speaker" />
 		
 	</label>
-	<g:textField name="speaker" value="${speechInstance?.speaker}" />
+    <g:select id="speaker" name="speaker" from="${com.toastmasters.idc.Member.list()}" optionKey="name" optionValue="name" required="true" class="many-to-one"/>
 
 </div>
 
@@ -70,8 +69,8 @@
 		<g:message code="speech.speechType.label" default="Speech Type" />
 		
 	</label>
-	<g:textField name="speechType" value="${speechInstance?.speechType}" />
 
+    <g:select id="speechType" name="speechType" from="${com.toastmasters.idc.SpeechType.list()}" optionKey="name" optionValue="name" required="true" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: speechInstance, field: 'title', 'error')} ">
