@@ -22,7 +22,6 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<ol class="property-list member">
-
                 <g:if test="${memberInstance?.imageUrl}">
                     <li class="fieldcontain">
 
@@ -34,17 +33,6 @@
 
                     </li>
                 </g:if>
-				<g:if test="${memberInstance?.club}">
-				<li class="fieldcontain">
-					<span id="club-label" class="property-label"><g:message code="member.club.label" default="Club" /></span>
-					
-						<span class="property-value"
-                              aria-labelledby="club-label"><g:link
-                                controller="club" action="show" id="${memberInstance?.club?.id}">${memberInstance?.club?.name}</g:link></span>
-					
-				</li>
-				</g:if>
-
 
                 <g:if test="${memberInstance?.name}">
                     <li class="fieldcontain">
@@ -64,7 +52,8 @@
                     </li>
                 </g:if>
 
-                <g:if test="${memberInstance?.contactNumber}">
+
+				<g:if test="${memberInstance?.contactNumber}">
 				<li class="fieldcontain">
 					<span id="contactNumber-label" class="property-label"><g:message code="member.contactNumber.label" default="Contact Number" /></span>
 					
@@ -86,13 +75,31 @@
 				<li class="fieldcontain">
 					<span id="registered-label" class="property-label"><g:message code="member.registered.label" default="Registered" /></span>
 					
-						<span class="property-value"
-                              aria-labelledby="registered-label"><g:formatDate date="${memberInstance?.registered}" format="dd-MMM-yyyy"/></span>
+						<span class="property-value" aria-labelledby="registered-label"><g:formatDate date="${memberInstance?.registered}" /></span>
 					
 				</li>
 				</g:if>
 			
-			</ol>
+				<g:if test="${memberInstance?.status}">
+				<li class="fieldcontain">
+					<span id="status-label" class="property-label"><g:message code="member.status.label" default="Status" /></span>
+					
+						<span class="property-value" aria-labelledby="status-label"><g:fieldValue bean="${memberInstance}" field="status"/></span>
+					
+				</li>
+				</g:if>
+                <g:if test="${memberInstance?.club}">
+                    <li class="fieldcontain">
+                        <span id="club-label" class="property-label"><g:message code="member.club.label" default="Club" /></span>
+
+                        <span class="property-value"
+                              aria-labelledby="club-label"><g:link
+                                controller="club" action="show" id="${memberInstance?.club?.id}">${memberInstance?.club?.name.encodeAsHTML()}</g:link></span>
+
+                    </li>
+                </g:if>
+
+            </ol>
 			<g:form url="[resource:memberInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">
 					<g:link class="edit" action="edit" resource="${memberInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>

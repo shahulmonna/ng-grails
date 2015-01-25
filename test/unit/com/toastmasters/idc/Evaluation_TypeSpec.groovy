@@ -5,7 +5,7 @@ import spock.lang.Specification
 
 /**
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions*/
-@TestFor(Evaluation_Type)
+@TestFor(EvaluationType)
 class Evaluation_TypeSpec extends Specification {
 
 	def setup() {}

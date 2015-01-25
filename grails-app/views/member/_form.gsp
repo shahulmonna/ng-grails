@@ -1,13 +1,11 @@
 <%@ page import="com.toastmasters.idc.Member" %>
 
+<div class="fieldcontain ${hasErrors(bean: memberInstance, field: 'memberId', 'error')} ">
+    <label for="memberId">
+        <g:message code="member.memberId.label" default="Member Id" />
 
-
-<div class="fieldcontain ${hasErrors(bean: memberInstance, field: 'club', 'error')} ">
-	<label for="club">
-		<g:message code="member.club.label" default="Club" />
-		
-	</label>
-	<g:select id="club" name="club.id" from="${com.toastmasters.idc.Club.list()}" optionValue="name" optionKey="id" required="" value="${memberInstance?.club?.id}" class="many-to-one"/>
+    </label>
+    <g:textField name="memberId" value="${memberInstance?.memberId}" />
 
 </div>
 
@@ -17,15 +15,6 @@
 
     </label>
     <g:textField name="name" value="${memberInstance?.name}" />
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: memberInstance, field: 'memberId', 'error')} ">
-    <label for="memberId">
-        <g:message code="member.memberId.label" default="Member Id" />
-
-    </label>
-    <g:textField name="memberId" value="${memberInstance?.memberId}" />
 
 </div>
 
@@ -65,3 +54,20 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: memberInstance, field: 'status', 'error')} ">
+	<label for="status">
+		<g:message code="member.status.label" default="Status" />
+		
+	</label>
+	<g:textField name="status" value="${memberInstance?.status}" />
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: memberInstance, field: 'club', 'error')} ">
+    <label for="club">
+        <g:message code="member.club.label" default="Club" />
+
+    </label>
+    <g:select id="club" name="club.id" from="${com.toastmasters.idc.Club.list()}" optionValue="name" optionKey="id" required="" value="${memberInstance?.club?.id}" class="many-to-one"/>
+
+</div>

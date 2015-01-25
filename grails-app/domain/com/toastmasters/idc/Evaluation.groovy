@@ -5,8 +5,8 @@ class Evaluation implements Serializable{
 
 	static belongsTo = [speech: Speech]
 
-	String evaluator;
-	String evaluationType;
+	Member evaluator; // belongs to member
+	EvaluationType evaluationType
 	String comments;
 	static constraints = {}
 	static mapping = {

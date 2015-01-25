@@ -24,25 +24,30 @@
 			<thead>
 					<tr>
 
-                        <g:sortableColumn property="speaker" title="${message(code: 'speech.speaker.label', default: 'Speaker')}" />
-                        <g:sortableColumn property="speechType" title="${message(code: 'speech.speechType.label', default: 'Speech Type')}" />
-						<th><g:message code="speech.events.label" default="Event" /></th>
-						<g:sortableColumn property="project" title="${message(code: 'speech.project.label', default: 'Project')}" />
+						<th><g:message code="speech.speaker.label" default="Speaker" /></th>
+					
+						<th><g:message code="speech.project.label" default="Project" /></th>
+					
+						<g:sortableColumn property="speaker" title="${message(code: 'speech.events.label', default: 'Events')}" />
+					
+						<th><g:message code="speech.speechType.label" default="Speech Type" /></th>
+					
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${speechInstanceList}" status="i" var="speechInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-                        <td><g:link action="show" id="${speechInstance.id}">${fieldValue(bean: speechInstance, field: "speaker")}</g:link></td>
 
-                        <td>${fieldValue(bean: speechInstance, field: "speechType")}</td>
-					
+                        <td><g:link action="show"
+                                    id="${speechInstance.id}">${fieldValue(bean: speechInstance, field: "speaker.name")}</g:link></td>
+
 						<td>${fieldValue(bean: speechInstance, field:
+                                "project.name")}</td>
+                        <td>${fieldValue(bean: speechInstance, field:
                                 "events.eventNumber")}</td>
 					
-						<td>${fieldValue(bean: speechInstance, field: "project")}</td>
-					
-
+						<td>${fieldValue(bean: speechInstance, field:
+                                "speechType.name")}</td>
 					
 					</tr>
 				</g:each>
@@ -54,3 +59,4 @@
 		</div>
 	</body>
 </html>
+

@@ -22,126 +22,66 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<ol class="property-list event">
-                <g:if test="${eventInstance?.club}">
-                    <li class="fieldcontain">
-                        <span id="club-label" class="property-label"><g:message code="event.club.label" default="Club" /></span>
-
-                        <span class="property-value"
-                              aria-labelledby="club-label"><g:link
-                                controller="club" action="show" id="${eventInstance?.club?.id}">${eventInstance?.club?.name}</g:link></span>
-
-                    </li>
-                </g:if>
-
-                <g:if test="${eventInstance?.eventNumber}">
-                    <li class="fieldcontain">
-                        <span id="eventNumber-label" class="property-label"><g:message code="event.eventNumber.label" default="Event Number" /></span>
-
-                        <span class="property-value" aria-labelledby="eventNumber-label"><g:fieldValue bean="${eventInstance}" field="eventNumber"/></span>
-
-                    </li>
-                </g:if>
-
-                <g:if test="${eventInstance?.eventOn}">
-                    <li class="fieldcontain">
-                        <span id="eventOn-label" class="property-label"><g:message code="event.eventOn.label" default="Event On" /></span>
-
-                        <span class="property-value"
-                              aria-labelledby="eventOn-label"><g:formatDate
-                                date="${eventInstance?.eventOn}"
-                                format="dd-MMM-yyy"/></span>
-
-                    </li>
-                </g:if>
-
-                <g:if test="${eventInstance?.timings}">
-                    <li class="fieldcontain">
-                        <span id="timings-label" class="property-label"><g:message code="event.timings.label" default="Timings" /></span>
-
-                        <span class="property-value" aria-labelledby="timings-label"><g:fieldValue bean="${eventInstance}" field="timings"/></span>
-
-                    </li>
-                </g:if>
-
-
-                <g:if test="${eventInstance?.location}">
-                    <li class="fieldcontain">
-                        <span id="location-label" class="property-label"><g:message code="event.location.label" default="Location" /></span>
-
-                        <span class="property-value" aria-labelledby="location-label"><g:fieldValue bean="${eventInstance}" field="location"/></span>
-
-                    </li>
-                </g:if>
-
-
-                <g:if test="${eventInstance?.theme}">
-                    <li class="fieldcontain">
-                        <span id="theme-label" class="property-label"><g:message code="event.theme.label" default="Theme" /></span>
-
-                        <span class="property-value" aria-labelledby="theme-label"><g:fieldValue bean="${eventInstance}" field="theme"/></span>
-
-                    </li>
-                </g:if>
-
-                <g:if test="${eventInstance?.wordOfTheDay}">
-                    <li class="fieldcontain">
-                        <span id="wordOfTheDay-label" class="property-label"><g:message code="event.wordOfTheDay.label" default="Word Of The Day" /></span>
-
-                        <span class="property-value" aria-labelledby="wordOfTheDay-label"><g:fieldValue bean="${eventInstance}" field="wordOfTheDay"/></span>
-
-                    </li>
-                </g:if>
-
-                <g:if test="${eventInstance?.saa}">
-                    <li class="fieldcontain">
-                        <span id="saa-label" class="property-label"><g:message code="event.saa.label" default="Saa" /></span>
-
-                        <span class="property-value" aria-labelledby="saa-label"><g:fieldValue bean="${eventInstance}" field="saa"/></span>
-
-                    </li>
-                </g:if>
-
-                <g:if test="${eventInstance?.president}">
-                    <li class="fieldcontain">
-                        <span id="president-label" class="property-label"><g:message code="event.president.label" default="President" /></span>
-
-                        <span class="property-value" aria-labelledby="president-label"><g:fieldValue bean="${eventInstance}" field="president"/></span>
-
-                    </li>
-                </g:if>
-
-                <g:if test="${eventInstance?.emcee}">
-                    <li class="fieldcontain">
-                        <span id="emcee-label" class="property-label"><g:message code="event.emcee.label" default="Emcee" /></span>
-
-                        <span class="property-value" aria-labelledby="emcee-label"><g:fieldValue bean="${eventInstance}" field="emcee"/></span>
-
-                    </li>
-                </g:if>
-
-                <g:if test="${eventInstance?.ttm}">
-                    <li class="fieldcontain">
-                        <span id="ttm-label" class="property-label"><g:message code="event.ttm.label" default="Ttm" /></span>
-
-                        <span class="property-value" aria-labelledby="ttm-label"><g:fieldValue bean="${eventInstance}" field="ttm"/></span>
-
-                    </li>
-                </g:if>
-
-                <g:if test="${eventInstance?.ge}">
-                    <li class="fieldcontain">
-                        <span id="ge-label" class="property-label"><g:message code="event.ge.label" default="Ge" /></span>
-
-                        <span class="property-value" aria-labelledby="ge-label"><g:fieldValue bean="${eventInstance}" field="ge"/></span>
-
-                    </li>
-                </g:if>
-
+			
 				<g:if test="${eventInstance?.ahCounter}">
 				<li class="fieldcontain">
 					<span id="ahCounter-label" class="property-label"><g:message code="event.ahCounter.label" default="Ah Counter" /></span>
 					
-						<span class="property-value" aria-labelledby="ahCounter-label"><g:fieldValue bean="${eventInstance}" field="ahCounter"/></span>
+						<span class="property-value" aria-labelledby="ahCounter-label"><g:link controller="member" action="show" id="${eventInstance?.ahCounter?.id}">${eventInstance?.ahCounter?.name.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${eventInstance?.club}">
+				<li class="fieldcontain">
+					<span id="club-label" class="property-label"><g:message code="event.club.label" default="Club" /></span>
+					
+						<span class="property-value" aria-labelledby="club-label"><g:link controller="club" action="show" id="${eventInstance?.club?.id}">${eventInstance?.club?.name.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${eventInstance?.descWordOfTheDay}">
+				<li class="fieldcontain">
+					<span id="descWordOfTheDay-label" class="property-label"><g:message code="event.descWordOfTheDay.label" default="Desc Word Of The Day" /></span>
+					
+						<span class="property-value" aria-labelledby="descWordOfTheDay-label"><g:fieldValue bean="${eventInstance}" field="descWordOfTheDay"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${eventInstance?.emcee}">
+				<li class="fieldcontain">
+					<span id="emcee-label" class="property-label"><g:message code="event.emcee.label" default="Emcee" /></span>
+					
+						<span class="property-value" aria-labelledby="emcee-label"><g:link controller="member" action="show" id="${eventInstance?.emcee?.id}">${eventInstance?.emcee?.name.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${eventInstance?.eventNumber}">
+				<li class="fieldcontain">
+					<span id="eventNumber-label" class="property-label"><g:message code="event.eventNumber.label" default="Event Number" /></span>
+					
+						<span class="property-value" aria-labelledby="eventNumber-label"><g:fieldValue bean="${eventInstance}" field="eventNumber"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${eventInstance?.eventOn}">
+				<li class="fieldcontain">
+					<span id="eventOn-label" class="property-label"><g:message code="event.eventOn.label" default="Event On" /></span>
+					
+						<span class="property-value" aria-labelledby="eventOn-label"><g:formatDate date="${eventInstance?.eventOn}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${eventInstance?.ge}">
+				<li class="fieldcontain">
+					<span id="ge-label" class="property-label"><g:message code="event.ge.label" default="Ge" /></span>
+					
+						<span class="property-value" aria-labelledby="ge-label"><g:link controller="member" action="show" id="${eventInstance?.ge?.id}">${eventInstance?.ge?.name.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
@@ -150,7 +90,16 @@
 				<li class="fieldcontain">
 					<span id="grammarian-label" class="property-label"><g:message code="event.grammarian.label" default="Grammarian" /></span>
 					
-						<span class="property-value" aria-labelledby="grammarian-label"><g:fieldValue bean="${eventInstance}" field="grammarian"/></span>
+						<span class="property-value" aria-labelledby="grammarian-label"><g:link controller="member" action="show" id="${eventInstance?.grammarian?.id}">${eventInstance?.grammarian?.name.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${eventInstance?.location}">
+				<li class="fieldcontain">
+					<span id="location-label" class="property-label"><g:message code="event.location.label" default="Location" /></span>
+					
+						<span class="property-value" aria-labelledby="location-label"><g:fieldValue bean="${eventInstance}" field="location"/></span>
 					
 				</li>
 				</g:if>
@@ -159,7 +108,25 @@
 				<li class="fieldcontain">
 					<span id="parliamentarian-label" class="property-label"><g:message code="event.parliamentarian.label" default="Parliamentarian" /></span>
 					
-						<span class="property-value" aria-labelledby="parliamentarian-label"><g:fieldValue bean="${eventInstance}" field="parliamentarian"/></span>
+						<span class="property-value" aria-labelledby="parliamentarian-label"><g:link controller="member" action="show" id="${eventInstance?.parliamentarian?.id}">${eventInstance?.parliamentarian?.name.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${eventInstance?.president}">
+				<li class="fieldcontain">
+					<span id="president-label" class="property-label"><g:message code="event.president.label" default="President" /></span>
+					
+						<span class="property-value" aria-labelledby="president-label"><g:link controller="member" action="show" id="${eventInstance?.president?.id}">${eventInstance?.president?.name.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${eventInstance?.saa}">
+				<li class="fieldcontain">
+					<span id="saa-label" class="property-label"><g:message code="event.saa.label" default="Saa" /></span>
+					
+						<span class="property-value" aria-labelledby="saa-label"><g:link controller="member" action="show" id="${eventInstance?.saa?.id}">${eventInstance?.saa?.name.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
@@ -169,18 +136,59 @@
 					<span id="speechs-label" class="property-label"><g:message code="event.speechs.label" default="Speechs" /></span>
 					
 						<g:each in="${eventInstance.speechs}" var="s">
-						<span class="property-value" aria-labelledby="speechs-label"><g:link controller="speech" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></span>
+						<span class="property-value"
+                              aria-labelledby="speechs-label"><g:link
+                                controller="speech" action="show"
+                                id="${s.id}">${s?.speaker?.name?.encodeAsHTML()}, ${s?.project?.name?.encodeAsHTML()}</g:link></span>
 						</g:each>
 					
 				</li>
 				</g:if>
-
+			
+				<g:if test="${eventInstance?.theme}">
+				<li class="fieldcontain">
+					<span id="theme-label" class="property-label"><g:message code="event.theme.label" default="Theme" /></span>
+					
+						<span class="property-value" aria-labelledby="theme-label"><g:fieldValue bean="${eventInstance}" field="theme"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${eventInstance?.timeManager}">
 				<li class="fieldcontain">
 					<span id="timeManager-label" class="property-label"><g:message code="event.timeManager.label" default="Time Manager" /></span>
-
-						<span class="property-value" aria-labelledby="timeManager-label"><g:fieldValue bean="${eventInstance}" field="timeManager"/></span>
-
+					
+						<span class="property-value" aria-labelledby="timeManager-label"><g:link controller="member" action="show" id="${eventInstance?.timeManager?.id}">${eventInstance?.timeManager?.name.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${eventInstance?.timings}">
+				<li class="fieldcontain">
+					<span id="timings-label" class="property-label"><g:message code="event.timings.label" default="Timings" /></span>
+					
+						<span class="property-value" aria-labelledby="timings-label"><g:fieldValue bean="${eventInstance}" field="timings"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${eventInstance?.ttm}">
+				<li class="fieldcontain">
+					<span id="ttm-label" class="property-label"><g:message code="event.ttm.label" default="Ttm" /></span>
+					
+						<span class="property-value"
+                              aria-labelledby="ttm-label"><g:link
+                                controller="member" action="show" id="${eventInstance?.ttm?.id}">${eventInstance?.ttm?.name.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${eventInstance?.wordOfTheDay}">
+				<li class="fieldcontain">
+					<span id="wordOfTheDay-label" class="property-label"><g:message code="event.wordOfTheDay.label" default="Word Of The Day" /></span>
+					
+						<span class="property-value" aria-labelledby="wordOfTheDay-label"><g:fieldValue bean="${eventInstance}" field="wordOfTheDay"/></span>
+					
 				</li>
 				</g:if>
 			

@@ -17,5 +17,6 @@ class Project implements Serializable{
 	}
 	static mapping = {
 		index name:true
+		sort name:"asc"
 	}
 }

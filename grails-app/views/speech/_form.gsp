@@ -28,7 +28,7 @@
 	
 <ul class="one-to-many">
 <g:each in="${speechInstance?.evaluations?}" var="e">
-    <li><g:link controller="evaluation" action="show" id="${e.id}">${e?.evaluationType?.encodeAsHTML()}</g:link></li>
+    <li><g:link controller="evaluation" action="show" id="${e.id}">${e?.evaluationType.name?.encodeAsHTML()}</g:link></li>
 </g:each>
 <li class="add">
 <g:link controller="evaluation" action="create" params="['speech.id': speechInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'evaluation.label', default: 'Evaluation')])}</g:link>
@@ -43,7 +43,7 @@
 		<g:message code="speech.events.label" default="Events" />
 		
 	</label>
-	<g:select id="events" name="events.id" from="${com.toastmasters.idc.Event.list()}" optionKey="id" optionValue="eventNumber" required="" value="${speechInstance?.events?.id}" class="many-to-one"/>
+	<g:select id="events" name="events.id" from="${com.toastmasters.idc.Event.list()}" optionValue="eventNumber" optionKey="id" required="" value="${speechInstance?.events?.id}" class="many-to-one"/>
 
 </div>
 
@@ -52,7 +52,8 @@
 		<g:message code="speech.project.label" default="Project" />
 		
 	</label>
-    <g:select id="project" name="project" from="${com.toastmasters.idc.Project.list()}" optionKey="name" optionValue="name" required="true" class="many-to-one"/>
+	<g:select id="project" name="project.id" from="${com.toastmasters.idc.Project.list()}" optionValue="name" optionKey="id" required="" value="${speechInstance?.project?.id}" class="many-to-one"/>
+
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: speechInstance, field: 'speaker', 'error')} ">
@@ -60,7 +61,8 @@
 		<g:message code="speech.speaker.label" default="Speaker" />
 		
 	</label>
-    <g:select id="speaker" name="speaker" from="${com.toastmasters.idc.Member.list()}" optionKey="name" optionValue="name" required="true" class="many-to-one"/>
+
+    <g:select id="speaker" name="speaker.id" from="${com.toastmasters.idc.Member.list()}" optionValue="name" optionKey="id" required="" value="${speechInstance?.speaker?.id}" class="many-to-one"/>
 
 </div>
 
@@ -69,8 +71,8 @@
 		<g:message code="speech.speechType.label" default="Speech Type" />
 		
 	</label>
+	<g:select id="speechType" name="speechType.id" from="${com.toastmasters.idc.SpeechType.list()}" optionValue="name" optionKey="id" required="" value="${speechInstance?.speechType?.id}" class="many-to-one"/>
 
-    <g:select id="speechType" name="speechType" from="${com.toastmasters.idc.SpeechType.list()}" optionKey="name" optionValue="name" required="true" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: speechInstance, field: 'title', 'error')} ">

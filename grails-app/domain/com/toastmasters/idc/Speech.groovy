@@ -10,10 +10,10 @@ class Speech implements Serializable{
 	static belongsTo = [events: Event]
 	static hasMany = [evaluations:Evaluation]
 	String title;
-	String speaker;
+	Member speaker;
 
-	String project;
-	String speechType;
+	Project project; //map to education project
+	SpeechType speechType;// map to speech type
 	String duration;
 	String ahCounts;
 

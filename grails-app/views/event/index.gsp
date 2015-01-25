@@ -23,11 +23,13 @@
 			<table>
 			<thead>
 					<tr>
-
-
-						<g:sortableColumn property="eventNumber" title="${message(code: 'event.eventNumber.label', default: 'Event Number')}" />
-                        <th><g:message code="event.club.label" default="Club" /></th>
 					
+						<th><g:message code="event.eventNumber.label" default="Event Number" /></th>
+
+						<th><g:message code="event.club.label" default="Club" /></th>
+					
+						<th><g:message code="event.emcee.label" default="Emcee" /></th>
+
 						<g:sortableColumn property="eventOn" title="${message(code: 'event.eventOn.label', default: 'Event On')}" />
 					
 					</tr>
@@ -35,15 +37,16 @@
 				<tbody>
 				<g:each in="${eventInstanceList}" status="i" var="eventInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
 
                         <td><g:link action="show" id="${eventInstance.id}">${fieldValue(bean: eventInstance, field: "eventNumber")}</g:link></td>
-
-                        <td>${fieldValue(bean: eventInstance,
+					
+						<td>${fieldValue(bean: eventInstance,
                                 field: "club.name")}</td>
+					
+						<td>${fieldValue(bean: eventInstance,
+                                field: "emcee.name")}</td>
 
-						<td><g:formatDate date="${eventInstance.eventOn}"
-                                          format="dd-MMM-yyy"/></td>
+						<td><g:formatDate date="${eventInstance.eventOn}" /></td>
 					
 					</tr>
 				</g:each>

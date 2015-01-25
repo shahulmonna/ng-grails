@@ -23,27 +23,27 @@
 			<table>
 			<thead>
 					<tr>
+					
+						<g:sortableColumn property="comments" title="${message(code: 'evaluation.speech.label', default: 'Speech')}" />
 
-                        <th><g:message code="project.name.label"
-                                       default="Project" /></th>
-                        <th><g:message code="speech.speaker.label"
-                                       default="Speaker" /></th>
+						<th><g:message code="evaluation.evaluationType.label" default="Evaluation Type" /></th>
 					
-						<g:sortableColumn property="evaluator" title="${message(code: 'evaluation.evaluator.label', default: 'Evaluator')}" />
-					
+						<th><g:message code="evaluation.evaluator.label" default="Evaluator" /></th>
 
-					
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${evaluationInstanceList}" status="i" var="evaluationInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-                        <td><g:link action="show"
-                                    id="${evaluationInstance.id}">${fieldValue(bean: evaluationInstance, field: "speech.project")}</g:link></td>
 
-                        <td>${fieldValue(bean: evaluationInstance, field:
-                                "speech.speaker")}</td>
-						<td>${fieldValue(bean: evaluationInstance, field: "evaluator")}</td>
+                        <td><g:link action="show" id="${evaluationInstance.id}">${fieldValue(bean: evaluationInstance, field:
+                                "speech.speaker.name")}</g:link></td>
+					
+						<td>${fieldValue(bean: evaluationInstance, field:
+                                "evaluationType.name")}</td>
+					
+						<td>${fieldValue(bean: evaluationInstance, field:
+                                "evaluator.name")}</td>
 					
 
 					

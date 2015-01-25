@@ -1,6 +1,8 @@
 package com.toastmasters.idc
 
-class Evaluation_Type {
+class EvaluationType {
+	static mapWith = "mongo"
+
   String name;
 	String description;
 	static constraints = {}

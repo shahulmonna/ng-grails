@@ -16,17 +16,19 @@ class Event implements Serializable{
 	String theme;
 	String wordOfTheDay;
 	String descWordOfTheDay;
-	String saa;//sergant at arms
-	String emcee;
-	String ge; //general evaluator
-	String grammarian;
-	String parliamentarian;
-	String ahCounter;
-	String ttm; //table topic master
-	String timeManager;
-	String president;
+	Member saa;//sergant at arms
+	Member emcee;
+	Member ge; //general evaluator
+	Member grammarian;
+	Member parliamentarian;
+	Member ahCounter;
+	Member ttm; //table topic master
+	Member timeManager;
+	Member president;
 
     static constraints = {
+			eventNumber nullable: false, unique:true
+			eventOn eventOn: false
     }
 
 	static mapping = {

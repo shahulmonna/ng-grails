@@ -1,49 +1,14 @@
 package com.toastmasters.idc
 
-import com.toastmasters.idc.exception.NGException
+
+
+import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
-import static org.springframework.http.HttpStatus.CREATED
-import static org.springframework.http.HttpStatus.NOT_FOUND
-import static org.springframework.http.HttpStatus.NO_CONTENT
-import static org.springframework.http.HttpStatus.OK
-
 @Transactional(readOnly = true)
-class EventController{
+class EventController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-def pdfRenderingService
-	def reportService
-	def renderAgenda(){
-		/*def args =[template:"/pdf/agenda",model:[memberInstanceList:Member.list()],
-							 controller:this]*/
-		//params.meetingNo=8;
-		println("meetingNo : ${params.meetingNo}")
-		def args = reportService.generateAgenda(params.meetingNo as String)
-		if(args && args.model.event) {
-			args << [controller: this];
-			println("event ${args.model.event}")
-			pdfRenderingService.render(args, response)
-		}else {
-			def ngException  = new NGException();
-			ngException.errorMessages="Invalid meeting request";
-			throw ngException;
-		}
-	}
-
-	def agenda(){
-		/*def args =[template:"/pdf/agenda",model:[memberInstanceList:Member.list()],
-							 controller:this]*/
-		//params.meetingNo=8;
-		println("meetingNo : ${params.meetingNo}")
-/*
-		def args = [template: "/meeting-agenda",
-								model: [event: Event.findByEventNumber(params.meetingNo as String),
-												userRoles:UserRole.findAll()]]*/
-		println(Event.findByEventNumber(params.meetingNo).toString())
-		respond (Event.findByEventNumber(params.meetingNo),model:[userRoles:UserRole.findAll()]);
-	}
-
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -55,9 +20,7 @@ def pdfRenderingService
     }
 
     def create() {
-			respond (new Event(params), model:[speechTypes:SpeechType.list(),
-																					projects:Project.list(),
-																					members: Member.list()])
+        respond new Event(params)
     }
 
     @Transactional
@@ -103,8 +66,7 @@ def pdfRenderingService
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message',
-										args: [message(code: 'event.label', default: 'Event'), eventInstance.id])
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'Event.label', default: 'Event'), eventInstance.id])
                 redirect eventInstance
             }
             '*'{ respond eventInstance, [status: OK] }
@@ -123,8 +85,7 @@ def pdfRenderingService
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message',
-										args: [message(code: 'event.label', default: 'Event'), eventInstance.id])
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Event.label', default: 'Event'), eventInstance.id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
