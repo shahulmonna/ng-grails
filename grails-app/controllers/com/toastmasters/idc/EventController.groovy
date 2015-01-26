@@ -1,104 +1,91 @@
 package com.toastmasters.idc
 
-
+import grails.rest.RestfulController
+import org.restapidoc.annotation.RestApi
+import org.restapidoc.annotation.RestApiMethod
+import org.restapidoc.annotation.RestApiParam
+import org.restapidoc.annotation.RestApiParams
+import org.restapidoc.pojo.RestApiParamType
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
-class EventController {
+@RestApi(name = "Event Services", description = "Methods for managing Events")
+class EventController extends RestfulController<Event> {
 
+    static responseFormats = ['json', 'xml']
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+	EventController(){
+		super(Event)
+	}
 
+	@RestApiMethod(description="Get Events",listing = true)
+	@RestApiParams(params=[
+			@RestApiParam(name="max", type="int", paramType = RestApiParamType.PATH,
+					description = "max limit")
+	])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Event.list(params), model:[eventInstanceCount: Event.count()]
+        respond Event.list(params), [status: OK]
     }
 
-    def show(Event eventInstance) {
-        respond eventInstance
-    }
 
-    def create() {
-        respond new Event(params)
-    }
+	@RestApiMethod(description="Get a Event")
+	@RestApiParams(params=[
+			@RestApiParam(name="id", type="int", paramType = RestApiParamType.PATH,
+					description = "Event Number")
+	])
+	def show() {
+		respond Event.findByEventNumber(params.id), [status: OK]
+	}
 
-    @Transactional
+	@Transactional
+		@RestApiMethod(description="Create Event")
     def save(Event eventInstance) {
         if (eventInstance == null) {
-            notFound()
+            render status: NOT_FOUND
             return
         }
 
+        eventInstance.validate()
         if (eventInstance.hasErrors()) {
-            respond eventInstance.errors, view:'create'
+            render status: NOT_ACCEPTABLE
             return
         }
 
         eventInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'event.label', default: 'Event'), eventInstance.id])
-                redirect eventInstance
-            }
-            '*' { respond eventInstance, [status: CREATED] }
-        }
-    }
-
-    def edit(Event eventInstance) {
-        respond eventInstance
+        respond eventInstance, [status: CREATED]
     }
 
     @Transactional
+		@RestApiMethod(description="Update Event")
     def update(Event eventInstance) {
         if (eventInstance == null) {
-            notFound()
+            render status: NOT_FOUND
             return
         }
 
+        eventInstance.validate()
         if (eventInstance.hasErrors()) {
-            respond eventInstance.errors, view:'edit'
+            render status: NOT_ACCEPTABLE
             return
         }
 
         eventInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Event.label', default: 'Event'), eventInstance.id])
-                redirect eventInstance
-            }
-            '*'{ respond eventInstance, [status: OK] }
-        }
+        respond eventInstance, [status: OK]
     }
 
     @Transactional
+		@RestApiMethod(description="Delete Event")
     def delete(Event eventInstance) {
 
         if (eventInstance == null) {
-            notFound()
+            render status: NOT_FOUND
             return
         }
 
         eventInstance.delete flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Event.label', default: 'Event'), eventInstance.id])
-                redirect action:"index", method:"GET"
-            }
-            '*'{ render status: NO_CONTENT }
-        }
-    }
-
-    protected void notFound() {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'event.label', default: 'Event'), params.id])
-                redirect action: "index", method: "GET"
-            }
-            '*'{ render status: NOT_FOUND }
-        }
+        render status: NO_CONTENT
     }
 }

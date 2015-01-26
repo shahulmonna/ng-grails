@@ -1,14 +1,16 @@
 package com.toastmasters.idc
 
+import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 import org.apache.commons.lang.builder.HashCodeBuilder
 
 /**
  * Created by syedshahul on 8/12/14.*/
-@ToString
-class UserRole  implements Serializable {
 
-	private static final long serialVersionUID = 1
+@ToString(includeNames = false, includeFields = true,
+		excludes = 'dateCreated,lastUpdated,metaClass')
+@EqualsAndHashCode
+class UserRole  implements Serializable {
 
 	Member member
 	Role role

@@ -1,8 +1,11 @@
 package com.toastmasters.idc
 
+import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 
-@ToString
+@ToString(includeNames = false, includeFields = true,
+		excludes = 'dateCreated,lastUpdated,metaClass')
+@EqualsAndHashCode
 class EducationProgram implements Serializable{
 	static mapWith = "mongo"
 	static hasMany = [projects:Project]

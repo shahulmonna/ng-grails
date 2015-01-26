@@ -2,6 +2,8 @@ package com.toastmasters.idc
 
 
 
+import static org.springframework.http.HttpStatus.*
+import grails.converters.JSON
 import grails.test.mixin.*
 import spock.lang.*
 
@@ -12,7 +14,7 @@ class SpeechTypeControllerSpec extends Specification {
     def populateValidParams(params) {
         assert params != null
         // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+        //params['name'] = 'someValidName'
     }
 
     void "Test the index action returns the correct model"() {
@@ -20,31 +22,21 @@ class SpeechTypeControllerSpec extends Specification {
         when:"The index action is executed"
             controller.index()
 
-        then:"The model is correct"
-            !model.speechTypeInstanceList
-            model.speechTypeInstanceCount == 0
-    }
-
-    void "Test the create action returns the correct model"() {
-        when:"The create action is executed"
-            controller.create()
-
-        then:"The model is correctly created"
-            model.speechTypeInstance!= null
+        then:"The response is correct"
+            response.status == OK.value
+            response.text == ([] as JSON).toString()
     }
 
     void "Test the save action correctly persists an instance"() {
 
         when:"The save action is executed with an invalid instance"
-            request.contentType = FORM_CONTENT_TYPE
-            request.method = 'POST'
+            // Make sure the domain class has at least one non-null property
+            // or this test will fail.
             def speechType = new SpeechType()
-            speechType.validate()
             controller.save(speechType)
 
-        then:"The create view is rendered again with the correct model"
-            model.speechTypeInstance!= null
-            view == 'create'
+        then:"The response status is NOT_ACCEPTABLE"
+            response.status == NOT_ACCEPTABLE.value
 
         when:"The save action is executed with a valid instance"
             response.reset()
@@ -53,64 +45,25 @@ class SpeechTypeControllerSpec extends Specification {
 
             controller.save(speechType)
 
-        then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/speechType/show/1'
-            controller.flash.message != null
-            SpeechType.count() == 1
-    }
-
-    void "Test that the show action returns the correct model"() {
-        when:"The show action is executed with a null domain"
-            controller.show(null)
-
-        then:"A 404 error is returned"
-            response.status == 404
-
-        when:"A domain instance is passed to the show action"
-            populateValidParams(params)
-            def speechType = new SpeechType(params)
-            controller.show(speechType)
-
-        then:"A model is populated containing the domain instance"
-            model.speechTypeInstance == speechType
-    }
-
-    void "Test that the edit action returns the correct model"() {
-        when:"The edit action is executed with a null domain"
-            controller.edit(null)
-
-        then:"A 404 error is returned"
-            response.status == 404
-
-        when:"A domain instance is passed to the edit action"
-            populateValidParams(params)
-            def speechType = new SpeechType(params)
-            controller.edit(speechType)
-
-        then:"A model is populated containing the domain instance"
-            model.speechTypeInstance == speechType
+        then:"The response status is CREATED and the instance is returned"
+            response.status == CREATED.value
+            response.text == (speechType as JSON).toString()
     }
 
     void "Test the update action performs an update on a valid domain instance"() {
         when:"Update is called for a domain instance that doesn't exist"
-            request.contentType = FORM_CONTENT_TYPE
-            request.method = 'PUT'
             controller.update(null)
 
-        then:"A 404 error is returned"
-            response.redirectedUrl == '/speechType/index'
-            flash.message != null
-
+        then:"The response status is NOT_FOUND"
+            response.status == NOT_FOUND.value
 
         when:"An invalid domain instance is passed to the update action"
             response.reset()
             def speechType = new SpeechType()
-            speechType.validate()
             controller.update(speechType)
 
-        then:"The edit view is rendered again with the invalid instance"
-            view == 'edit'
-            model.speechTypeInstance == speechType
+        then:"The response status is NOT_ACCEPTABLE"
+            response.status == NOT_ACCEPTABLE.value
 
         when:"A valid domain instance is passed to the update action"
             response.reset()
@@ -118,20 +71,17 @@ class SpeechTypeControllerSpec extends Specification {
             speechType = new SpeechType(params).save(flush: true)
             controller.update(speechType)
 
-        then:"A redirect is issues to the show action"
-            response.redirectedUrl == "/speechType/show/$speechType.id"
-            flash.message != null
+        then:"The response status is OK and the updated instance is returned"
+            response.status == OK.value
+            response.text == (speechType as JSON).toString()
     }
 
     void "Test that the delete action deletes an instance if it exists"() {
         when:"The delete action is called for a null instance"
-            request.contentType = FORM_CONTENT_TYPE
-            request.method = 'DELETE'
             controller.delete(null)
 
-        then:"A 404 is returned"
-            response.redirectedUrl == '/speechType/index'
-            flash.message != null
+        then:"A NOT_FOUND is returned"
+            response.status == NOT_FOUND.value
 
         when:"A domain instance is created"
             response.reset()
@@ -146,7 +96,6 @@ class SpeechTypeControllerSpec extends Specification {
 
         then:"The instance is deleted"
             SpeechType.count() == 0
-            response.redirectedUrl == '/speechType/index'
-            flash.message != null
+            response.status == NO_CONTENT.value
     }
 }

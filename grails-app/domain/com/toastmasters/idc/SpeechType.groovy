@@ -1,10 +1,13 @@
 package com.toastmasters.idc
 
+import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 
 /**
  * Created by syedshahul on 5/12/14.*/
-@ToString
+@ToString(includeNames = false, includeFields = true,
+		excludes = 'dateCreated,lastUpdated,metaClass')
+@EqualsAndHashCode
 class SpeechType implements Serializable{
 	static mapWith = "mongo"
 

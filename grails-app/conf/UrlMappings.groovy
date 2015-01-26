@@ -1,7 +1,18 @@
 class UrlMappings {
 
 	static mappings = {
+		"/api/clubs"(resources:'educationProgram')
+		"/api/educationprograms"(resources:'educationProgram')
+		"/api/evaluations"(resources:'evaluation')
+		"/api/evaluationtypes"(resources:'evaluationType')
+		"/api/events"(resources:'event')
 		"/api/members"(resources:'member')
+		"/api/projects"(resources:'project')
+		"/api/socialnetworks"(resources:'socialNetwork')
+		"/api/speechs"(resources:'speech')
+		"/api/speechtypes"(resources:'speechTypes')
+
+
 
 
 		name agenda: "/agenda-pdf/${meetingNo}" {

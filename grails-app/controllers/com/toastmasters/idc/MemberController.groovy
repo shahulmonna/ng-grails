@@ -1,104 +1,68 @@
 package com.toastmasters.idc
 
-
+import grails.rest.RestfulController
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
-class MemberController {
+class MemberController extends RestfulController<Member> {
 
+    static responseFormats = ['json', 'xml']
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def index(Integer max) {
+	MemberController() {
+		super(Member)
+	}
+
+	def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Member.list(params), model:[memberInstanceCount: Member.count()]
-    }
-
-    def show(Member memberInstance) {
-        respond memberInstance
-    }
-
-    def create() {
-        respond new Member(params)
+        respond Member.list(params), [status: OK]
     }
 
     @Transactional
     def save(Member memberInstance) {
         if (memberInstance == null) {
-            notFound()
+            render status: NOT_FOUND
             return
         }
 
+        memberInstance.validate()
         if (memberInstance.hasErrors()) {
-            respond memberInstance.errors, view:'create'
+            render status: NOT_ACCEPTABLE
             return
         }
 
         memberInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'member.label', default: 'Member'), memberInstance.id])
-                redirect memberInstance
-            }
-            '*' { respond memberInstance, [status: CREATED] }
-        }
-    }
-
-    def edit(Member memberInstance) {
-        respond memberInstance
+        respond memberInstance, [status: CREATED]
     }
 
     @Transactional
     def update(Member memberInstance) {
         if (memberInstance == null) {
-            notFound()
+            render status: NOT_FOUND
             return
         }
 
+        memberInstance.validate()
         if (memberInstance.hasErrors()) {
-            respond memberInstance.errors, view:'edit'
+            render status: NOT_ACCEPTABLE
             return
         }
 
         memberInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Member.label', default: 'Member'), memberInstance.id])
-                redirect memberInstance
-            }
-            '*'{ respond memberInstance, [status: OK] }
-        }
+        respond memberInstance, [status: OK]
     }
 
     @Transactional
     def delete(Member memberInstance) {
 
         if (memberInstance == null) {
-            notFound()
+            render status: NOT_FOUND
             return
         }
 
         memberInstance.delete flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Member.label', default: 'Member'), memberInstance.id])
-                redirect action:"index", method:"GET"
-            }
-            '*'{ render status: NO_CONTENT }
-        }
-    }
-
-    protected void notFound() {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'member.label', default: 'Member'), params.id])
-                redirect action: "index", method: "GET"
-            }
-            '*'{ render status: NOT_FOUND }
-        }
+        render status: NO_CONTENT
     }
 }

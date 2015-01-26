@@ -64,6 +64,7 @@ grails.project.dependency.resolution = {
 		runtime 'org.springframework:spring-test:3.2.3.RELEASE'
 		test "org.grails:grails-datastore-test-support:1.0.2-grails-2.4"
 		compile 'org.xhtmlrenderer:flying-saucer-pdf:9.0.4'
+
 	}
 
 	plugins {
@@ -83,6 +84,8 @@ grails.project.dependency.resolution = {
 	/*	compile ":jasper:1.10.0"
 		compile ":dynamic-jasper:0.6"*/
 		compile ":rendering:1.0.0"
+		runtime ':resources:1.2.14'
+		compile ":rest-api-doc:0.6.1"
 		//https://github.com/robfletcher/grails-gson#readme
 		//compile 'org.grails.plugins:gson:1.1.4'
 //		compile ":pdf:0.6"

@@ -1,104 +1,68 @@
 package com.toastmasters.idc
 
-
+import grails.rest.RestfulController
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
-class EvaluationController {
+class EvaluationController extends RestfulController<Evaluation> {
 
+    static responseFormats = ['json', 'xml']
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def index(Integer max) {
+	EvaluationController() {
+		super(Evaluation)
+	}
+
+	def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Evaluation.list(params), model:[evaluationInstanceCount: Evaluation.count()]
-    }
-
-    def show(Evaluation evaluationInstance) {
-        respond evaluationInstance
-    }
-
-    def create() {
-        respond new Evaluation(params)
+        respond Evaluation.list(params), [status: OK]
     }
 
     @Transactional
     def save(Evaluation evaluationInstance) {
         if (evaluationInstance == null) {
-            notFound()
+            render status: NOT_FOUND
             return
         }
 
+        evaluationInstance.validate()
         if (evaluationInstance.hasErrors()) {
-            respond evaluationInstance.errors, view:'create'
+            render status: NOT_ACCEPTABLE
             return
         }
 
         evaluationInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'evaluation.label', default: 'Evaluation'), evaluationInstance.id])
-                redirect evaluationInstance
-            }
-            '*' { respond evaluationInstance, [status: CREATED] }
-        }
-    }
-
-    def edit(Evaluation evaluationInstance) {
-        respond evaluationInstance
+        respond evaluationInstance, [status: CREATED]
     }
 
     @Transactional
     def update(Evaluation evaluationInstance) {
         if (evaluationInstance == null) {
-            notFound()
+            render status: NOT_FOUND
             return
         }
 
+        evaluationInstance.validate()
         if (evaluationInstance.hasErrors()) {
-            respond evaluationInstance.errors, view:'edit'
+            render status: NOT_ACCEPTABLE
             return
         }
 
         evaluationInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Evaluation.label', default: 'Evaluation'), evaluationInstance.id])
-                redirect evaluationInstance
-            }
-            '*'{ respond evaluationInstance, [status: OK] }
-        }
+        respond evaluationInstance, [status: OK]
     }
 
     @Transactional
     def delete(Evaluation evaluationInstance) {
 
         if (evaluationInstance == null) {
-            notFound()
+            render status: NOT_FOUND
             return
         }
 
         evaluationInstance.delete flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Evaluation.label', default: 'Evaluation'), evaluationInstance.id])
-                redirect action:"index", method:"GET"
-            }
-            '*'{ render status: NO_CONTENT }
-        }
-    }
-
-    protected void notFound() {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'evaluation.label', default: 'Evaluation'), params.id])
-                redirect action: "index", method: "GET"
-            }
-            '*'{ render status: NOT_FOUND }
-        }
+        render status: NO_CONTENT
     }
 }

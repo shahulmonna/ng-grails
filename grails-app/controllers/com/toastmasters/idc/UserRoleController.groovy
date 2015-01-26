@@ -1,104 +1,68 @@
 package com.toastmasters.idc
 
-
+import grails.rest.RestfulController
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
-class UserRoleController {
+class UserRoleController extends RestfulController<UserRole> {
 
+    static responseFormats = ['json', 'xml']
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def index(Integer max) {
+	UserRoleController() {
+		super(UserRole)
+	}
+
+	def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond UserRole.list(params), model:[userRoleInstanceCount: UserRole.count()]
-    }
-
-    def show(UserRole userRoleInstance) {
-        respond userRoleInstance
-    }
-
-    def create() {
-        respond new UserRole(params)
+        respond UserRole.list(params), [status: OK]
     }
 
     @Transactional
     def save(UserRole userRoleInstance) {
         if (userRoleInstance == null) {
-            notFound()
+            render status: NOT_FOUND
             return
         }
 
+        userRoleInstance.validate()
         if (userRoleInstance.hasErrors()) {
-            respond userRoleInstance.errors, view:'create'
+            render status: NOT_ACCEPTABLE
             return
         }
 
         userRoleInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'userrole.label', default: 'User Role'), userRoleInstance.id])
-                redirect userRoleInstance
-            }
-            '*' { respond userRoleInstance, [status: CREATED] }
-        }
-    }
-
-    def edit(UserRole userRoleInstance) {
-        respond userRoleInstance
+        respond userRoleInstance, [status: CREATED]
     }
 
     @Transactional
     def update(UserRole userRoleInstance) {
         if (userRoleInstance == null) {
-            notFound()
+            render status: NOT_FOUND
             return
         }
 
+        userRoleInstance.validate()
         if (userRoleInstance.hasErrors()) {
-            respond userRoleInstance.errors, view:'edit'
+            render status: NOT_ACCEPTABLE
             return
         }
 
         userRoleInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'userrole.label', default: 'User Role'), userRoleInstance.id])
-                redirect userRoleInstance
-            }
-            '*'{ respond userRoleInstance, [status: OK] }
-        }
+        respond userRoleInstance, [status: OK]
     }
 
     @Transactional
     def delete(UserRole userRoleInstance) {
 
         if (userRoleInstance == null) {
-            notFound()
+            render status: NOT_FOUND
             return
         }
 
         userRoleInstance.delete flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'userrole.label', default: 'User Role'), userRoleInstance.id])
-                redirect action:"index", method:"GET"
-            }
-            '*'{ render status: NO_CONTENT }
-        }
-    }
-
-    protected void notFound() {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'userrole.label', default: 'User Role'), params.id])
-                redirect action: "index", method: "GET"
-            }
-            '*'{ render status: NOT_FOUND }
-        }
+        render status: NO_CONTENT
     }
 }

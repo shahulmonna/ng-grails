@@ -1,11 +1,11 @@
 package com.toastmasters.idc
 
+import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 
 /**
  * Created by syedshahul on 5/12/14.*/
 
-@ToString
 class Role implements Serializable{
 	static mapWith = "mongo"
 

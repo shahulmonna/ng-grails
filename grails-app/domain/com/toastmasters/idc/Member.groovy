@@ -1,8 +1,11 @@
 package com.toastmasters.idc
 
+import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 
-@ToString
+@ToString(includeNames = true, includeFields = true,
+		excludes = 'dateCreated,lastUpdated,metaClass')
+@EqualsAndHashCode
 class Member implements Serializable{
 	static mapWith = "mongo"
 	static belongsTo = [club: Club]

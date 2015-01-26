@@ -1,104 +1,68 @@
 package com.toastmasters.idc
 
-
+import grails.rest.RestfulController
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
-class EducationProgramController {
+class EducationProgramController extends RestfulController<EducationProgram> {
 
+    static responseFormats = ['json', 'xml']
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def index(Integer max) {
+	EducationProgramController() {
+		super(EducationProgram)
+	}
+
+	def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond EducationProgram.list(params), model:[educationProgramInstanceCount: EducationProgram.count()]
-    }
-
-    def show(EducationProgram educationProgramInstance) {
-        respond educationProgramInstance
-    }
-
-    def create() {
-        respond new EducationProgram(params)
+        respond EducationProgram.list(params), [status: OK]
     }
 
     @Transactional
     def save(EducationProgram educationProgramInstance) {
         if (educationProgramInstance == null) {
-            notFound()
+            render status: NOT_FOUND
             return
         }
 
+        educationProgramInstance.validate()
         if (educationProgramInstance.hasErrors()) {
-            respond educationProgramInstance.errors, view:'create'
+            render status: NOT_ACCEPTABLE
             return
         }
 
         educationProgramInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'educationProgram.label', default: 'EducationProgram'), educationProgramInstance.id])
-                redirect educationProgramInstance
-            }
-            '*' { respond educationProgramInstance, [status: CREATED] }
-        }
-    }
-
-    def edit(EducationProgram educationProgramInstance) {
-        respond educationProgramInstance
+        respond educationProgramInstance, [status: CREATED]
     }
 
     @Transactional
     def update(EducationProgram educationProgramInstance) {
         if (educationProgramInstance == null) {
-            notFound()
+            render status: NOT_FOUND
             return
         }
 
+        educationProgramInstance.validate()
         if (educationProgramInstance.hasErrors()) {
-            respond educationProgramInstance.errors, view:'edit'
+            render status: NOT_ACCEPTABLE
             return
         }
 
         educationProgramInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'EducationProgram.label', default: 'EducationProgram'), educationProgramInstance.id])
-                redirect educationProgramInstance
-            }
-            '*'{ respond educationProgramInstance, [status: OK] }
-        }
+        respond educationProgramInstance, [status: OK]
     }
 
     @Transactional
     def delete(EducationProgram educationProgramInstance) {
 
         if (educationProgramInstance == null) {
-            notFound()
+            render status: NOT_FOUND
             return
         }
 
         educationProgramInstance.delete flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'EducationProgram.label', default: 'EducationProgram'), educationProgramInstance.id])
-                redirect action:"index", method:"GET"
-            }
-            '*'{ render status: NO_CONTENT }
-        }
-    }
-
-    protected void notFound() {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'educationProgram.label', default: 'EducationProgram'), params.id])
-                redirect action: "index", method: "GET"
-            }
-            '*'{ render status: NOT_FOUND }
-        }
+        render status: NO_CONTENT
     }
 }

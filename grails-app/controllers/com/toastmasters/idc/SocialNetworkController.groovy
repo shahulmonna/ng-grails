@@ -1,107 +1,68 @@
 package com.toastmasters.idc
 
-
+import grails.rest.RestfulController
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
-class SocialNetworkController {
+class SocialNetworkController extends RestfulController<SocialNetwork>{
 
+    static responseFormats = ['json', 'xml']
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def index(Integer max) {
+	SocialNetworkController() {
+		super(SocialNetwork)
+	}
+
+	def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond SocialNetwork.list(params), model:[socialNetworkInstanceCount: SocialNetwork.count()]
-    }
-
-    def show(SocialNetwork socialNetworkInstance) {
-        respond socialNetworkInstance
-    }
-
-    def create() {
-        respond new SocialNetwork(params)
+        respond SocialNetwork.list(params), [status: OK]
     }
 
     @Transactional
     def save(SocialNetwork socialNetworkInstance) {
         if (socialNetworkInstance == null) {
-            notFound()
+            render status: NOT_FOUND
             return
         }
 
+        socialNetworkInstance.validate()
         if (socialNetworkInstance.hasErrors()) {
-            respond socialNetworkInstance.errors, view:'create'
+            render status: NOT_ACCEPTABLE
             return
         }
 
         socialNetworkInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', 
-										args: [message(code: 'socialnetwork.label', default: 'Social Network'), socialNetworkInstance.id])
-                redirect socialNetworkInstance
-            }
-            '*' { respond socialNetworkInstance, [status: CREATED] }
-        }
-    }
-
-    def edit(SocialNetwork socialNetworkInstance) {
-        respond socialNetworkInstance
+        respond socialNetworkInstance, [status: CREATED]
     }
 
     @Transactional
     def update(SocialNetwork socialNetworkInstance) {
         if (socialNetworkInstance == null) {
-            notFound()
+            render status: NOT_FOUND
             return
         }
 
+        socialNetworkInstance.validate()
         if (socialNetworkInstance.hasErrors()) {
-            respond socialNetworkInstance.errors, view:'edit'
+            render status: NOT_ACCEPTABLE
             return
         }
 
         socialNetworkInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', 
-										args: [message(code: 'socialnetwork.label', default: 'Social Network'), socialNetworkInstance.id])
-                redirect socialNetworkInstance
-            }
-            '*'{ respond socialNetworkInstance, [status: OK] }
-        }
+        respond socialNetworkInstance, [status: OK]
     }
 
     @Transactional
     def delete(SocialNetwork socialNetworkInstance) {
 
         if (socialNetworkInstance == null) {
-            notFound()
+            render status: NOT_FOUND
             return
         }
 
         socialNetworkInstance.delete flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', 
-										args: [message(code: 'socialnetwork.label', default: 'Social Network'), socialNetworkInstance.id])
-                redirect action:"index", method:"GET"
-            }
-            '*'{ render status: NO_CONTENT }
-        }
-    }
-
-    protected void notFound() {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'socialnetwork.label', default: 'Social Network'), params.id])
-                redirect action: "index", method: "GET"
-            }
-            '*'{ render status: NOT_FOUND }
-        }
+        render status: NO_CONTENT
     }
 }
