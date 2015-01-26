@@ -1,252 +1,634 @@
 {
    "basePath": "Fill with basePath config",
-   "apis": [{
-      "methods": [{
-         "headers": [],
-         "bodyobject": null,
-         "jsondocId": "9198eb4e-636b-4065-a984-d90621b9cf1b",
-         "consumes": [],
-         "response": {
-            "mapKeyObject": "",
-            "jsondocId": "2a96cd9c-9bfb-4d3f-926a-d882ffd618b6",
-            "mapValueObject": "",
-            "object": "event"
-         },
-         "pathparameters": [{
-            "jsondocId": "72a8be44-38ad-4702-aaa6-cfd977ad2b9e",
-            "description": "max limit",
-            "name": "max",
-            "allowedvalues": [],
-            "format": "",
-            "required": "true",
-            "type": "int"
-         }],
-         "apierrors": [],
-         "verb": "GET",
-         "description": "Get Events",
-         "queryparameters": [],
-         "path": "/api/events",
-         "produces": ["application/json"],
-         "methodName": "index"
-      }],
-      "jsondocId": "d1b7c467-408f-45d0-b4b5-c579bae19991",
-      "description": "Methods for managing Events",
-      "name": "Event Services"
-   }],
-   "objects": [{
-      "jsondocId": "24d05b39-5eb4-4fff-8845-a2a23878ba2f",
-      "description": "A Event/Meeting of Toastmasters",
-      "name": "event",
-      "fields": [
-         {
-            "jsondocId": "48b4570f-37da-4575-be29-79d1b342212e",
-            "description": "Ah Counter",
-            "presentInResponse": true,
-            "mandatory": true,
-            "name": "ahCounter",
-            "allowedvalues": null,
-            "useForCreation": true,
-            "format": null,
-            "defaultValue": null,
-            "type": "Member",
-            "multiple": "false"
-         },
-         {
-            "jsondocId": "f25be070-b10b-4bae-9182-5670a49f7ecd",
-            "description": "Details of the Word of the day",
-            "presentInResponse": true,
-            "mandatory": true,
-            "name": "descWordOfTheDay",
-            "allowedvalues": null,
-            "useForCreation": true,
-            "format": null,
-            "defaultValue": null,
-            "type": "String",
-            "multiple": "false"
-         },
-         {
-            "jsondocId": "a458d69b-2f3e-45bb-bc59-c993c1117741",
-            "description": "Emcee/Master of Ceremony/Toastmaster of the day",
-            "presentInResponse": true,
-            "mandatory": true,
-            "name": "emcee",
-            "allowedvalues": null,
-            "useForCreation": true,
-            "format": null,
-            "defaultValue": null,
-            "type": "Member",
-            "multiple": "false"
-         },
-         {
-            "jsondocId": "19d3099d-6214-45f2-b128-6c71fd6830b4",
-            "description": "Meeting Number",
-            "presentInResponse": true,
-            "mandatory": true,
-            "name": "eventNumber",
-            "allowedvalues": null,
-            "useForCreation": true,
-            "format": null,
-            "defaultValue": null,
-            "type": "String",
-            "multiple": "false"
-         },
-         {
-            "jsondocId": "b13d6597-5777-4aa1-a075-76fc9f574381",
-            "description": "Meeting Date",
-            "presentInResponse": true,
-            "mandatory": true,
-            "name": "eventOn",
-            "allowedvalues": null,
-            "useForCreation": true,
-            "format": null,
-            "defaultValue": null,
-            "type": "Date",
-            "multiple": "false"
-         },
-         {
-            "jsondocId": "ab3fc240-d295-443e-9aa1-42e8702f5ab1",
-            "description": "General Evaluator",
-            "presentInResponse": true,
-            "mandatory": true,
-            "name": "ge",
-            "allowedvalues": null,
-            "useForCreation": true,
-            "format": null,
-            "defaultValue": null,
-            "type": "Member",
-            "multiple": "false"
-         },
-         {
-            "jsondocId": "e0816701-60c8-4e1b-8523-52467f48dd41",
-            "description": "Grammarian",
-            "presentInResponse": true,
-            "mandatory": true,
-            "name": "grammarian",
-            "allowedvalues": null,
-            "useForCreation": true,
-            "format": null,
-            "defaultValue": null,
-            "type": "Member",
-            "multiple": "false"
-         },
-         {
-            "jsondocId": "3196b3b0-e2a5-4b6d-8ae8-7280c9bd6373",
-            "description": "Location of the meeting",
-            "presentInResponse": true,
-            "mandatory": true,
-            "name": "location",
-            "allowedvalues": null,
-            "useForCreation": true,
-            "format": null,
-            "defaultValue": null,
-            "type": "String",
-            "multiple": "false"
-         },
-         {
-            "jsondocId": "0c94d6c9-c52e-4870-adba-13e2f52e362d",
-            "description": "Parliamentarian of the meeting",
-            "presentInResponse": true,
-            "mandatory": true,
-            "name": "parliamentarian",
-            "allowedvalues": null,
-            "useForCreation": true,
-            "format": null,
-            "defaultValue": null,
-            "type": "Member",
-            "multiple": "false"
-         },
-         {
-            "jsondocId": "9eba3c0a-9a0d-446d-ad35-43ef53ae2c17",
-            "description": "Presiding Officer/President",
-            "presentInResponse": true,
-            "mandatory": true,
-            "name": "president",
-            "allowedvalues": null,
-            "useForCreation": true,
-            "format": null,
-            "defaultValue": null,
-            "type": "Member",
-            "multiple": "false"
-         },
-         {
-            "jsondocId": "91355ae1-d495-43a5-b3c9-ceeaa820a332",
-            "description": "Sergant at Arms of the meeting",
-            "presentInResponse": true,
-            "mandatory": true,
-            "name": "saa",
-            "allowedvalues": null,
-            "useForCreation": true,
-            "format": null,
-            "defaultValue": null,
-            "type": "Member",
-            "multiple": "false"
-         },
-         {
-            "jsondocId": "23dadcc3-5351-4927-bf0b-536016213e7d",
-            "description": "The Theme of the meeting",
-            "presentInResponse": true,
-            "mandatory": true,
-            "name": "theme",
-            "allowedvalues": null,
-            "useForCreation": true,
-            "format": null,
-            "defaultValue": null,
-            "type": "String",
-            "multiple": "false"
-         },
-         {
-            "jsondocId": "6342e14c-57eb-41d2-b042-011caff331d2",
-            "description": "Timer",
-            "presentInResponse": true,
-            "mandatory": true,
-            "name": "timeManager",
-            "allowedvalues": null,
-            "useForCreation": true,
-            "format": null,
-            "defaultValue": null,
-            "type": "Member",
-            "multiple": "false"
-         },
-         {
-            "jsondocId": "aaa90b8d-03ff-4482-a1e2-8ea4c7260978",
-            "description": "Meeting Timeing",
-            "presentInResponse": true,
-            "mandatory": true,
-            "name": "timings",
-            "allowedvalues": null,
-            "useForCreation": true,
-            "format": null,
-            "defaultValue": null,
-            "type": "String",
-            "multiple": "false"
-         },
-         {
-            "jsondocId": "1e3812bb-d433-4cc6-8f52-e3c712f9a46c",
-            "description": "Table Topics Master",
-            "presentInResponse": true,
-            "mandatory": true,
-            "name": "ttm",
-            "allowedvalues": null,
-            "useForCreation": true,
-            "format": null,
-            "defaultValue": null,
-            "type": "Member",
-            "multiple": "false"
-         },
-         {
-            "jsondocId": "25875c89-f898-405a-90a7-c93510195d49",
-            "description": "Word of the day",
-            "presentInResponse": true,
-            "mandatory": true,
-            "name": "wordOfTheDay",
-            "allowedvalues": null,
-            "useForCreation": true,
-            "format": null,
-            "defaultValue": null,
-            "type": "String",
-            "multiple": "false"
-         }
-      ]
-   }],
+   "apis": [
+      {
+         "methods": [
+            {
+               "headers": [],
+               "bodyobject": null,
+               "jsondocId": "e2f060e0-9a09-4b87-8906-0e3c5bc1b33a",
+               "consumes": [],
+               "response": {
+                  "mapKeyObject": "",
+                  "jsondocId": "fd9702b6-9b8f-47b2-9848-83a4545d4df9",
+                  "mapValueObject": "",
+                  "object": "club"
+               },
+               "pathparameters": [{
+                  "jsondocId": "0bc3cc2f-6845-4ae9-b0d5-79734cb13e01",
+                  "description": "Club Number",
+                  "name": "number",
+                  "allowedvalues": [],
+                  "format": "",
+                  "required": "true",
+                  "type": "String"
+               }],
+               "apierrors": [],
+               "verb": "GET",
+               "description": "Get a Club",
+               "queryparameters": [],
+               "path": "/api/clubs/{id}",
+               "produces": ["application/json"],
+               "methodName": "show"
+            },
+            {
+               "headers": [],
+               "bodyobject": {
+                  "mapKeyObject": "",
+                  "jsondocId": "f0b2deff-b5f2-4433-beb9-941fd4433487",
+                  "mapValueObject": "",
+                  "map": "",
+                  "object": "club",
+                  "multiple": "Unknow"
+               },
+               "jsondocId": "b253a39d-e29b-4034-bf87-4cf4978df26b",
+               "consumes": ["application/json"],
+               "response": {
+                  "mapKeyObject": "",
+                  "jsondocId": "c59dec84-b915-4d7e-8889-47faa7aa6f0a",
+                  "mapValueObject": "",
+                  "object": "club"
+               },
+               "pathparameters": [],
+               "apierrors": [],
+               "verb": "POST",
+               "description": "Create Club",
+               "queryparameters": [],
+               "path": "/api/clubs",
+               "produces": ["application/json"],
+               "methodName": "save"
+            },
+            {
+               "headers": [],
+               "bodyobject": null,
+               "jsondocId": "5e981406-bdb4-4b8a-aad1-96deaabd813f",
+               "consumes": [],
+               "response": {
+                  "mapKeyObject": "",
+                  "jsondocId": "0d7fce0d-be6b-46fd-995a-abdd431d618f",
+                  "mapValueObject": "",
+                  "object": "club"
+               },
+               "pathparameters": [{
+                  "jsondocId": "14108a4f-8eb4-4f25-b97b-adb96d1e13cc",
+                  "description": "max limit",
+                  "name": "max",
+                  "allowedvalues": [],
+                  "format": "",
+                  "required": "true",
+                  "type": "int"
+               }],
+               "apierrors": [],
+               "verb": "GET",
+               "description": "Get Clubs",
+               "queryparameters": [],
+               "path": "/api/clubs",
+               "produces": ["application/json"],
+               "methodName": "index"
+            },
+            {
+               "headers": [],
+               "bodyobject": null,
+               "jsondocId": "1ba988ec-2550-4866-a9ad-c8c14d880b4b",
+               "consumes": [],
+               "response": {
+                  "mapKeyObject": "",
+                  "jsondocId": "7804e9c9-806f-4e65-a417-9e93e89211f7",
+                  "mapValueObject": "",
+                  "object": "club"
+               },
+               "pathparameters": [],
+               "apierrors": [],
+               "verb": "DELETE",
+               "description": "Delete Club",
+               "queryparameters": [],
+               "path": "/api/clubs/{id}",
+               "produces": ["application/json"],
+               "methodName": "delete"
+            },
+            {
+               "headers": [],
+               "bodyobject": {
+                  "mapKeyObject": "",
+                  "jsondocId": "a3a65872-e8da-4e5b-a4ec-6ea7aadc093d",
+                  "mapValueObject": "",
+                  "map": "",
+                  "object": "club",
+                  "multiple": "Unknow"
+               },
+               "jsondocId": "0b173776-4c1f-488f-9546-5db842e763cd",
+               "consumes": ["application/json"],
+               "response": {
+                  "mapKeyObject": "",
+                  "jsondocId": "c10cfc53-b7c3-4a69-b4fe-90f3c4b53c03",
+                  "mapValueObject": "",
+                  "object": "club"
+               },
+               "pathparameters": [],
+               "apierrors": [],
+               "verb": "PUT",
+               "description": "Update Club",
+               "queryparameters": [],
+               "path": "/api/clubs/{id}",
+               "produces": ["application/json"],
+               "methodName": "update"
+            }
+         ],
+         "jsondocId": "60b840c6-df0f-4b9d-b147-6072448a7d08",
+         "description": "Methods for managing Club",
+         "name": "Club Services"
+      },
+      {
+         "methods": [
+            {
+               "headers": [],
+               "bodyobject": null,
+               "jsondocId": "806f8cc1-bee2-4f59-8b66-eed2df21720c",
+               "consumes": [],
+               "response": {
+                  "mapKeyObject": "",
+                  "jsondocId": "5039279f-0391-4eb4-ba43-0a99f3c7b01c",
+                  "mapValueObject": "",
+                  "object": "event"
+               },
+               "pathparameters": [{
+                  "jsondocId": "161b28c0-e922-4930-b274-5b8093f27663",
+                  "description": "Event Number",
+                  "name": "id",
+                  "allowedvalues": [],
+                  "format": "",
+                  "required": "true",
+                  "type": "int"
+               }],
+               "apierrors": [],
+               "verb": "GET",
+               "description": "Get a Event",
+               "queryparameters": [],
+               "path": "/api/events/{id}",
+               "produces": ["application/json"],
+               "methodName": "show"
+            },
+            {
+               "headers": [],
+               "bodyobject": {
+                  "mapKeyObject": "",
+                  "jsondocId": "b18e9b27-baec-47b3-bad1-20a1f54f5897",
+                  "mapValueObject": "",
+                  "map": "",
+                  "object": "event",
+                  "multiple": "Unknow"
+               },
+               "jsondocId": "ef065023-44ba-48a2-b2c4-44e67a5e0c4d",
+               "consumes": ["application/json"],
+               "response": {
+                  "mapKeyObject": "",
+                  "jsondocId": "1648dd42-e200-4f2f-9183-db11d60aa601",
+                  "mapValueObject": "",
+                  "object": "event"
+               },
+               "pathparameters": [],
+               "apierrors": [],
+               "verb": "POST",
+               "description": "Create Event",
+               "queryparameters": [],
+               "path": "/api/events",
+               "produces": ["application/json"],
+               "methodName": "save"
+            },
+            {
+               "headers": [],
+               "bodyobject": null,
+               "jsondocId": "0496336f-916c-4a59-9d03-ed6f9d6225a4",
+               "consumes": [],
+               "response": {
+                  "mapKeyObject": "",
+                  "jsondocId": "aa5f018e-0345-4c02-acfb-8bdf3d1e3c50",
+                  "mapValueObject": "",
+                  "object": "event"
+               },
+               "pathparameters": [{
+                  "jsondocId": "c1f9bd04-e3d6-43bc-a763-10f37a393289",
+                  "description": "max limit",
+                  "name": "max",
+                  "allowedvalues": [],
+                  "format": "",
+                  "required": "true",
+                  "type": "int"
+               }],
+               "apierrors": [],
+               "verb": "GET",
+               "description": "Get Events",
+               "queryparameters": [],
+               "path": "/api/events",
+               "produces": ["application/json"],
+               "methodName": "index"
+            },
+            {
+               "headers": [],
+               "bodyobject": null,
+               "jsondocId": "86739ebe-0999-4302-a918-bafb7f99506c",
+               "consumes": [],
+               "response": {
+                  "mapKeyObject": "",
+                  "jsondocId": "9b8ef15d-e780-498c-bc90-db6cada7cb07",
+                  "mapValueObject": "",
+                  "object": "event"
+               },
+               "pathparameters": [],
+               "apierrors": [],
+               "verb": "DELETE",
+               "description": "Delete Event",
+               "queryparameters": [],
+               "path": "/api/events/{id}",
+               "produces": ["application/json"],
+               "methodName": "delete"
+            },
+            {
+               "headers": [],
+               "bodyobject": {
+                  "mapKeyObject": "",
+                  "jsondocId": "22e348c4-be8a-4ea0-b540-84b2f08be300",
+                  "mapValueObject": "",
+                  "map": "",
+                  "object": "event",
+                  "multiple": "Unknow"
+               },
+               "jsondocId": "0afbf409-b269-4bbe-bafb-625df5b9b377",
+               "consumes": ["application/json"],
+               "response": {
+                  "mapKeyObject": "",
+                  "jsondocId": "5f33b624-edd1-4028-ab66-6d6a5e227034",
+                  "mapValueObject": "",
+                  "object": "event"
+               },
+               "pathparameters": [],
+               "apierrors": [],
+               "verb": "PUT",
+               "description": "Update Event",
+               "queryparameters": [],
+               "path": "/api/events/{id}",
+               "produces": ["application/json"],
+               "methodName": "update"
+            }
+         ],
+         "jsondocId": "6e591041-3364-4cc8-b10d-156af96c467f",
+         "description": "Methods for managing Events",
+         "name": "Event Services"
+      }
+   ],
+   "objects": [
+      {
+         "jsondocId": "92c0b691-fff0-4a82-bf20-b055c90d0a6b",
+         "description": "A Club of Toastmasters",
+         "name": "club",
+         "fields": [
+            {
+               "jsondocId": "b9606215-ebe4-44e1-8ff2-890105531a07",
+               "description": "Banner image URL",
+               "presentInResponse": true,
+               "mandatory": false,
+               "name": "bannerImageUrl",
+               "allowedvalues": null,
+               "useForCreation": true,
+               "format": null,
+               "defaultValue": "Undefined",
+               "type": "String",
+               "multiple": "false"
+            },
+            {
+               "jsondocId": "32ee249f-9e1d-49f2-9d9d-ca5d0986f517",
+               "description": "Details about the club",
+               "presentInResponse": true,
+               "mandatory": true,
+               "name": "description",
+               "allowedvalues": null,
+               "useForCreation": true,
+               "format": null,
+               "defaultValue": null,
+               "type": "String",
+               "multiple": "false"
+            },
+            {
+               "jsondocId": "2b5f973e-9101-4d59-88d8-f69574f0bc85",
+               "description": "Meeting Location",
+               "presentInResponse": true,
+               "mandatory": true,
+               "name": "location",
+               "allowedvalues": null,
+               "useForCreation": true,
+               "format": null,
+               "defaultValue": null,
+               "type": "String",
+               "multiple": "false"
+            },
+            {
+               "jsondocId": "dc19be39-2956-4aee-872b-0fadfa1cda27",
+               "description": "GMap location URL of the club",
+               "presentInResponse": true,
+               "mandatory": true,
+               "name": "locationUrl",
+               "allowedvalues": null,
+               "useForCreation": true,
+               "format": null,
+               "defaultValue": null,
+               "type": "String",
+               "multiple": "false"
+            },
+            {
+               "jsondocId": "86506ae7-dedf-4afc-9ee7-861d16ec9d9f",
+               "description": "Logo image URL",
+               "presentInResponse": true,
+               "mandatory": false,
+               "name": "logoImageUrl",
+               "allowedvalues": null,
+               "useForCreation": true,
+               "format": null,
+               "defaultValue": "Undefined",
+               "type": "String",
+               "multiple": "false"
+            },
+            {
+               "jsondocId": "f72eb4e6-3aee-4329-817a-129f2dc00103",
+               "description": "Club meeting time",
+               "presentInResponse": true,
+               "mandatory": true,
+               "name": "meetingTimings",
+               "allowedvalues": null,
+               "useForCreation": true,
+               "format": null,
+               "defaultValue": null,
+               "type": "String",
+               "multiple": "false"
+            },
+            {
+               "jsondocId": "507b8fce-8fcb-4528-86fc-6d8589bdbef3",
+               "description": "Name of the Club",
+               "presentInResponse": true,
+               "mandatory": true,
+               "name": "name",
+               "allowedvalues": null,
+               "useForCreation": true,
+               "format": null,
+               "defaultValue": null,
+               "type": "String",
+               "multiple": "false"
+            },
+            {
+               "jsondocId": "a2b59965-69e7-4edb-a7aa-392cf7fd0a80",
+               "description": "Club Number",
+               "presentInResponse": true,
+               "mandatory": true,
+               "name": "number",
+               "allowedvalues": null,
+               "useForCreation": true,
+               "format": null,
+               "defaultValue": null,
+               "type": "String",
+               "multiple": "false"
+            },
+            {
+               "jsondocId": "952ab4d3-e750-4ba8-8a04-d373919c8a3a",
+               "description": "Date registered with Toastmasters International",
+               "presentInResponse": true,
+               "mandatory": true,
+               "name": "registered",
+               "allowedvalues": null,
+               "useForCreation": true,
+               "format": null,
+               "defaultValue": null,
+               "type": "Date",
+               "multiple": "false"
+            },
+            {
+               "jsondocId": "3709c98f-577c-4682-93ad-ea2346ad9511",
+               "description": "Club type(Corporate|Community)",
+               "presentInResponse": true,
+               "mandatory": true,
+               "name": "type",
+               "allowedvalues": null,
+               "useForCreation": true,
+               "format": null,
+               "defaultValue": null,
+               "type": "String",
+               "multiple": "false"
+            }
+         ]
+      },
+      {
+         "jsondocId": "f9ae3f91-3eb3-4b24-b0ba-cb686044969a",
+         "description": "A Event/Meeting of Toastmasters",
+         "name": "event",
+         "fields": [
+            {
+               "jsondocId": "8b0b6d98-fdc0-44b6-8976-c5947a571382",
+               "description": "Ah Counter",
+               "presentInResponse": true,
+               "mandatory": true,
+               "name": "ahCounter",
+               "allowedvalues": null,
+               "useForCreation": true,
+               "format": null,
+               "defaultValue": null,
+               "type": "Member",
+               "multiple": "false"
+            },
+            {
+               "jsondocId": "025f2afd-bab3-4584-9972-aa99b9ac155c",
+               "description": "Details of the Word of the day",
+               "presentInResponse": true,
+               "mandatory": true,
+               "name": "descWordOfTheDay",
+               "allowedvalues": null,
+               "useForCreation": true,
+               "format": null,
+               "defaultValue": null,
+               "type": "String",
+               "multiple": "false"
+            },
+            {
+               "jsondocId": "9c811988-9a99-4d73-a683-0f2c852bf8fe",
+               "description": "Emcee/Master of Ceremony/Toastmaster of the day",
+               "presentInResponse": true,
+               "mandatory": true,
+               "name": "emcee",
+               "allowedvalues": null,
+               "useForCreation": true,
+               "format": null,
+               "defaultValue": null,
+               "type": "Member",
+               "multiple": "false"
+            },
+            {
+               "jsondocId": "3db04b55-8060-4336-9779-992d107d57fe",
+               "description": "Meeting Number",
+               "presentInResponse": true,
+               "mandatory": true,
+               "name": "eventNumber",
+               "allowedvalues": null,
+               "useForCreation": true,
+               "format": null,
+               "defaultValue": null,
+               "type": "String",
+               "multiple": "false"
+            },
+            {
+               "jsondocId": "924f5887-8ef6-4a85-98f9-78cefec5b54f",
+               "description": "Meeting Date",
+               "presentInResponse": true,
+               "mandatory": true,
+               "name": "eventOn",
+               "allowedvalues": null,
+               "useForCreation": true,
+               "format": null,
+               "defaultValue": null,
+               "type": "Date",
+               "multiple": "false"
+            },
+            {
+               "jsondocId": "4702b650-4125-403f-aa86-c045652aeb9d",
+               "description": "General Evaluator",
+               "presentInResponse": true,
+               "mandatory": true,
+               "name": "ge",
+               "allowedvalues": null,
+               "useForCreation": true,
+               "format": null,
+               "defaultValue": null,
+               "type": "Member",
+               "multiple": "false"
+            },
+            {
+               "jsondocId": "06fabc87-c94e-4c8f-b6f0-3b824669f43c",
+               "description": "Grammarian",
+               "presentInResponse": true,
+               "mandatory": false,
+               "name": "grammarian",
+               "allowedvalues": null,
+               "useForCreation": true,
+               "format": null,
+               "defaultValue": "Undefined",
+               "type": "Member",
+               "multiple": "false"
+            },
+            {
+               "jsondocId": "43f66aec-ad69-4401-824e-0611f3b9396a",
+               "description": "Location of the meeting",
+               "presentInResponse": true,
+               "mandatory": true,
+               "name": "location",
+               "allowedvalues": null,
+               "useForCreation": true,
+               "format": null,
+               "defaultValue": null,
+               "type": "String",
+               "multiple": "false"
+            },
+            {
+               "jsondocId": "f651d920-cf90-42c4-ad4b-3cab16bb1b03",
+               "description": "Parliamentarian of the meeting",
+               "presentInResponse": true,
+               "mandatory": false,
+               "name": "parliamentarian",
+               "allowedvalues": null,
+               "useForCreation": true,
+               "format": null,
+               "defaultValue": "Undefined",
+               "type": "Member",
+               "multiple": "false"
+            },
+            {
+               "jsondocId": "12163e69-1b27-4b56-8e51-a91fc1c14ae9",
+               "description": "Presiding Officer/President",
+               "presentInResponse": true,
+               "mandatory": true,
+               "name": "president",
+               "allowedvalues": null,
+               "useForCreation": true,
+               "format": null,
+               "defaultValue": null,
+               "type": "Member",
+               "multiple": "false"
+            },
+            {
+               "jsondocId": "19794035-b4e8-4fe9-978e-ec864cf62d37",
+               "description": "Sergant at Arms of the meeting",
+               "presentInResponse": true,
+               "mandatory": true,
+               "name": "saa",
+               "allowedvalues": null,
+               "useForCreation": true,
+               "format": null,
+               "defaultValue": null,
+               "type": "Member",
+               "multiple": "false"
+            },
+            {
+               "jsondocId": "e9e10276-08fd-44af-a6bc-9ed508ecaf3c",
+               "description": "The Theme of the meeting",
+               "presentInResponse": true,
+               "mandatory": true,
+               "name": "theme",
+               "allowedvalues": null,
+               "useForCreation": true,
+               "format": null,
+               "defaultValue": null,
+               "type": "String",
+               "multiple": "false"
+            },
+            {
+               "jsondocId": "f5b357af-023b-4401-a2e7-cb85420ff95e",
+               "description": "Timer",
+               "presentInResponse": true,
+               "mandatory": true,
+               "name": "timeManager",
+               "allowedvalues": null,
+               "useForCreation": true,
+               "format": null,
+               "defaultValue": null,
+               "type": "Member",
+               "multiple": "false"
+            },
+            {
+               "jsondocId": "10f28f76-3979-40c7-8b16-75dcad0667fa",
+               "description": "Meeting Timeing",
+               "presentInResponse": true,
+               "mandatory": true,
+               "name": "timings",
+               "allowedvalues": null,
+               "useForCreation": true,
+               "format": null,
+               "defaultValue": null,
+               "type": "String",
+               "multiple": "false"
+            },
+            {
+               "jsondocId": "ce97a350-1e35-49bd-8ab8-4fd2e2a3cf7c",
+               "description": "Table Topics Master",
+               "presentInResponse": true,
+               "mandatory": true,
+               "name": "ttm",
+               "allowedvalues": null,
+               "useForCreation": true,
+               "format": null,
+               "defaultValue": null,
+               "type": "Member",
+               "multiple": "false"
+            },
+            {
+               "jsondocId": "f972b40a-4d76-43fe-a43a-68c21f523385",
+               "description": "Word of the day",
+               "presentInResponse": true,
+               "mandatory": true,
+               "name": "wordOfTheDay",
+               "allowedvalues": null,
+               "useForCreation": true,
+               "format": null,
+               "defaultValue": null,
+               "type": "String",
+               "multiple": "false"
+            }
+         ]
+      }
+   ],
    "version": "0.1.1"
 }

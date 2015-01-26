@@ -1,11 +1,17 @@
 package com.toastmasters.idc
 
 import grails.rest.RestfulController
+import org.restapidoc.annotation.RestApi
+import org.restapidoc.annotation.RestApiMethod
+import org.restapidoc.annotation.RestApiParam
+import org.restapidoc.annotation.RestApiParams
+import org.restapidoc.pojo.RestApiParamType
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
+@RestApi(name = "Club Services", description = "Methods for managing Club")
 class ClubController extends RestfulController<Club>{
 
     static responseFormats = ['json', 'xml']
@@ -13,12 +19,27 @@ class ClubController extends RestfulController<Club>{
 	ClubController(){
 		super(Club)
 	}
+	@RestApiMethod(description="Get Clubs",listing = true)
+	@RestApiParams(params=[
+			@RestApiParam(name="max", type="int", paramType = RestApiParamType.PATH,
+					description = "max limit")
+	])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Club.list(params), [status: OK]
     }
 
-    @Transactional
+	@RestApiMethod(description="Get a Club")
+	@RestApiParams(params=[
+			@RestApiParam(name="number", type="String", paramType = RestApiParamType.PATH,
+					description = "Club Number")
+	])
+	def show() {
+		respond Club.findByNumber(params.number), [status: OK]
+	}
+
+	@Transactional
+	@RestApiMethod(description="Create Club")
     def save(Club clubInstance) {
         if (clubInstance == null) {
             render status: NOT_FOUND
@@ -36,6 +57,7 @@ class ClubController extends RestfulController<Club>{
     }
 
     @Transactional
+		@RestApiMethod(description="Update Club")
     def update(Club clubInstance) {
         if (clubInstance == null) {
             render status: NOT_FOUND
@@ -53,6 +75,7 @@ class ClubController extends RestfulController<Club>{
     }
 
     @Transactional
+		@RestApiMethod(description="Delete Club")
     def delete(Club clubInstance) {
 
         if (clubInstance == null) {
