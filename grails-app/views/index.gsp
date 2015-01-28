@@ -16,6 +16,8 @@
 <div id="#top"></div>
 <g:render template="/home"/>
 <g:render template="/aboutus"/>
+<div style="margin: 23px; border: 2px; border-color: #005591; border-style: solid;width: 300px;height: 250px;box-sizing: content-box;" id="storitz_widget_parent"></div>
+<script type="text/javascript" src="http://api.storitz.com/widget-test/widget_js?pid=WESTSIDERENTALS" id="storitz_script"></script>
 <g:render template="/services"/>
 <g:render template="/clients"/>
 <g:render template="/portfolio"/>
